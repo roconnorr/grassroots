@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #384665;
+    font-size: 16px;
+}
+
+h1 {
+    background-color: #7491cb;
+    color: black;
+    font-family: Georgia, serif;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.message {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background-color: #7491cb;
+    color: black;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding: 20px;
+    text-align: center;
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navigation {
+    text-align: center;
+    padding-top: 0.6em;
+}
+
+.navigation a {
+    color: black;
+    background-color: #7491cb;
+    text-decoration: none;
+    padding: 0.4em;
+    margin: 0.4em;
+}
+
+.navigation a:hover {
+    box-shadow: 5px 5px 5px black;
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+.producttable {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 5px black;
+}
+
+.producttable tr {
+    background-color: #7491cb;
+        
+}
+
+.producttable th {
+    background-color: #7491cb;
+}
+
+.producttable td, producttable th {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 10%;
+}
+
+.producttable a {
+    color: black;
+    background-color: #7491cb;
+    text-decoration: none;
+    border: solid 2px black;
+    padding: 0.4em;
+    margin: 0.4em;
+}
+
+.producttable a:hover {
+    box-shadow: 5px 5px 5px black;
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+.form {
+    width: 300px;
+    margin: auto;
+}
+
+.form input {
+    width: 300px;
+    clear: both;
+    margin-bottom: 0.5em;
+    
+}
+
+.form label {
+    display: block;
+    color: black;
+    background-color: #7491cb;
+    width: 290px;
+    padding: 0.4em;
+    color: black;
+    text-align: center;
+    font-family: 'Bree Serif', serif;
+}
+
+.form button {
+    color: black;
+    background-color: #7491cb;
+    text-decoration: none;
+    padding: 0.4em;
+    width: 300px;
+    border: none;
+    font-size: 16px;
+}
+
+.form button:hover {
+    box-shadow: 5px 5px 5px black;
+    cursor: pointer;
+}
+
+.newaccount a {
+    display: block;
+    width: 288px;
+    color: black;
+    background-color: #7491cb;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.4em;
+    margin: auto;
+}
+
+.newaccount a:hover {
+    box-shadow: 5px 5px 5px black;
+}
+
+#money:before {
+    content: "$";
+}
+
+#money {
+    text-align: right;
+}
+
+
+
+

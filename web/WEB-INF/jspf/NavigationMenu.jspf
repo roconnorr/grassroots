@@ -1,0 +1,22 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="domain.Employee"%>
+<%@ page pageEncoding="UTF-8" %>
+<link rel="stylesheet" type="text/css" href="style.css">
+<%
+    Employee employee = (Employee)session.getAttribute("user");
+%>
+
+<%if(employee != null){%>
+<h2>Welcome <%= employee.getName()%></h2>
+<%}%>
+<div class="navigation">
+    <a href="index.jsp">Home</a>
+    <a href="ViewProducts.jsp">View Products</a>
+    <a href="ShoppingCart.jsp">Shopping Cart</a>
+    <%if (employee != null) {%>
+    <a href="/shop/Logout">Logout</a>
+    <%} else {%>
+    <a href="Login.jsp">Login</a>
+    <%}%>
+
+</div>
