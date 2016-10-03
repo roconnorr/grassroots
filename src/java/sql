@@ -1,3 +1,4 @@
+H2:
 create table customers(
     uid int not null AUTO_INCREMENT,
     name varchar not null,
@@ -29,4 +30,41 @@ create table jobs(
     constraint pk_jobs primary key (customerid, employeeid),
     constraint fk_jobs_customers foreign key (customer) references customers(uid),
     constraint fk_jobs_employees foreign key (employee) references employees(employeeid)
+);
+
+MYSQL:
+CREATE TABLE customers
+(
+  uid              INT unsigned NOT NULL AUTO_INCREMENT,
+  name             VARCHAR(150) NOT NULL,       
+  address          VARCHAR(150) NOT NULL,            
+  email            VARCHAR(150) NOT NULL,                   
+  phonenumber      VARCHAR(150) NOT NULL,               
+  sectionsize      VARCHAR(150) NOT NULL,                
+  PRIMARY KEY     (uid)                                  
+);
+
+CREATE TABLE employees
+(
+  employeeid       INT unsigned NOT NULL AUTO_INCREMENT,
+  name             VARCHAR(150) NOT NULL,       
+  username         VARCHAR(150) NOT NULL,            
+  password         VARCHAR(150) NOT NULL,                   
+  email            VARCHAR(150) NOT NULL,               
+  phonenumber      VARCHAR(150) NOT NULL,                
+  PRIMARY KEY     (employeeid)                                  
+);
+
+CREATE TABLE jobs
+(
+  chargerate       DOUBLE unsigned NOT NULL,
+  employeeid       INT unsigned NOT NULL,       
+  customerid       INT unsigned NOT NULL,            
+  date             TIMESTAMP    NOT NULL,                   
+  frequency        VARCHAR(150) NOT NULL,               
+  description      VARCHAR(150) NOT NULL,   
+  status           VARCHAR(150) NOT NULL,              
+  PRIMARY KEY      (employeeid, customerid),
+  FOREIGN KEY      (employeeid) REFERENCES employees(employeeid),
+  FOREIGN KEY      (customerid) REFERENCES customers(uid)                           
 );

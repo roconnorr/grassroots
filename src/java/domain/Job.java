@@ -19,7 +19,7 @@ public class Job {
     public enum Frequency {WEEKLY, FORTNIGHTLY, MONTHLY};
     private Frequency frequency;
     private String description;
-    private String status;
+    private String status; //make enum?
 
     public Job(Double chargeRate, Integer employeeID, Integer customerID, Date date, Frequency frequency, String description, String status) {
         this.chargeRate = chargeRate;

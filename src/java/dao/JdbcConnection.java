@@ -5,9 +5,12 @@
  */
 package dao;
 
+
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
-import org.h2.jdbcx.JdbcConnectionPool;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,18 +18,20 @@ import org.h2.jdbcx.JdbcConnectionPool;
  */
 public class JdbcConnection {
 
-    private static final String username = "sa"; // H2 default
-    private static final String password = ""; // H2 default
-    private static JdbcConnectionPool pool;
+    private static final String username = "grassrootsuser"; // H2 default
+    private static final String password = "mysqlPass7878"; // H2 default
+    private static Connection conn = null;
+    
 
     public static Connection getConnection(String url) {
-        if (pool == null) {
-            pool = JdbcConnectionPool.create(url, username, password);
-        }
         try {
-            return pool.getConnection();
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(url, username, password);
         } catch (SQLException ex) {
             throw new DAOException(ex.getMessage(), ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(JdbcConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return conn;
     }
 }

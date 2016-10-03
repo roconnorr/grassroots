@@ -24,8 +24,8 @@ import java.util.Date;
  */
 public class JobDatabaseAccess {
 
-
-    private String url = "jdbc:h2:tcp://localhost:9013/soultest;IFEXISTS=TRUE";
+ 
+    static private String url = "jdbc:mysql://192.168.178.21:3306/grassroots";
 
     public JobDatabaseAccess() {
     }
