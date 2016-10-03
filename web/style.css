@@ -1,18 +1,33 @@
 body {
     font-family: monospace;
-    background-color: #91b7be;
+    background-color: #b5d88f;
     background-image: url("resources/background.png");
     font-size: 16px;
 }
 
-h1 {
+.back {
+    opacity: 0.8;
     background-color: #b5d88f;
-    border: solid 4px #406e0f;
-    color: black;
     margin-left: 30px;
     margin-right: 30px;
-    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 0.5em 0em;
+}
+
+.content {
+    opacity: 1;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+h1 {
+    color: black;
     text-align: center;
+}
+
+h2 {
+    text-decoration: underline;
 }
 
 .navigation {

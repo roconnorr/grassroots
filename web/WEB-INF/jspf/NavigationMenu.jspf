@@ -17,5 +17,4 @@
     <%} else {%>
     <a href="Login.jsp">Admin Login</a>
     <%}%>
-
 </div>
