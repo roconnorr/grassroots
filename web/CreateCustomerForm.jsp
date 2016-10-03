@@ -9,31 +9,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Create Account</title>
+        <title>Create Customer</title>
     </head>
     <body>
-        memes
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
-        <h1>Create an Account</h1>
+        <h1>Create Customer</h1>
         <div class ="form">
         <form action="CreateAccount" method=POST">
-              <label for="txtUsername">Username: </label> 
-              <input id="txtUsername" name="Username" type="text">
-              
               <label for="txtName">Full Name: </label> 
               <input id="txtName" name="Name" type="text">
               
-              <label for="txtName">Credit Card: </label> 
-              <input id="txtName" name="CreditCard" type="text">
-              
-              <label for="password">Password: </label> 
-              <input id="password" name="Password" type="password">
+              <label for="txtAddress">Address: </label> 
+              <input id="txtAddress" name="Address" type="text">
               
               <label for="txtEmail">Email Address: </label> 
               <input id="txtEmail" name="Email" type="text">
               
-              <label for="txtAddress">Address: </label> 
-              <input id="txtAddress" name="Address" type="text">
+              <label for="txtPhoneNumber">Phone Number: </label> 
+              <input id="txtPhoneNumber" name="PhoneNumber" type="text">
+              
+              <label for="txtSectionSize">Section Size: </label> 
+              <input id="txtSectionSize" name="SectionSize" type="text">
               
               <button type="submit">Submit</button>
         </form>

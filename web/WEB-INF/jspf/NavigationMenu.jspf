@@ -11,8 +11,8 @@
 <%}%>
 <div class="navigation">
     <a href="index.jsp">Home</a>
+    <a href="CreateCustomerForm.jsp">Create Customer</a>
     <%if (employee != null) {%>
-    <a href="CreateCustomerForm.jsp">Home</a>
     <a href="/shop/Logout">Admin Logout</a>
     <%} else {%>
     <a href="Login.jsp">Admin Login</a>
