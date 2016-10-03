@@ -31,8 +31,6 @@ public class Employee {
     public void setName(String name) {
         this.name = name;
     }
-
-    
     
     public String getUserName() {
         return userName;
@@ -65,6 +63,4 @@ public class Employee {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    
-    
 }

@@ -12,6 +12,7 @@ create table employees(
     employeeid int not null AUTO_INCREMENT,
     name varchar not null,
     username varchar not null,
+    password varchar not null,
     email varchar not null,
     phonenumber varchar not null,
     constraint pk_employees primary key (employeeid)
@@ -19,12 +20,13 @@ create table employees(
 
 create table jobs(
     chargerate double not null,
-    employee varchar not null,
-    customer varchar not null,
+    employeeid int not null,
+    customerid int not null,
     date timestamp not null,
     frequency varchar not null,
     description varchar not null,
-    constraint pk_jobs primary key (customer, employee),
+    status varchar not null,
+    constraint pk_jobs primary key (customerid, employeeid),
     constraint fk_jobs_customers foreign key (customer) references customers(uid),
     constraint fk_jobs_employees foreign key (employee) references employees(employeeid)
 );

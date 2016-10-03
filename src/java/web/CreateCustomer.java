@@ -37,13 +37,14 @@ public class CreateCustomer extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Integer customerID = -1; //placeholder id, real id is assigned when saved to the db
         String name = request.getParameter("Username");
         String address = request.getParameter("Name");
         String email = request.getParameter("CreditCard");
         String phoneNumber = request.getParameter("Password");
         String sectionSize = request.getParameter("Email");
 
-        Customer c = new Customer(name, address, email, phoneNumber, sectionSize);
+        Customer c = new Customer(customerID, name, address, email, phoneNumber, sectionSize);
         
 
         Validator validator = new Validator();

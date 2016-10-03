@@ -11,12 +11,11 @@
 <%}%>
 <div class="navigation">
     <a href="index.jsp">Home</a>
-    <a href="ViewProducts.jsp">View Products</a>
-    <a href="ShoppingCart.jsp">Shopping Cart</a>
     <%if (employee != null) {%>
-    <a href="/shop/Logout">Logout</a>
+    <a href="CreateCustomerForm.jsp">Home</a>
+    <a href="/shop/Logout">Admin Logout</a>
     <%} else {%>
-    <a href="Login.jsp">Login</a>
+    <a href="Login.jsp">Admin Login</a>
     <%}%>
 
 </div>
