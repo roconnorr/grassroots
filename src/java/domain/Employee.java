@@ -10,19 +10,30 @@ package domain;
  * @author Rory
  */
 public class Employee {
+    private Integer employeeID;
     private String name;
     private String userName;
     private String password;
     private String email;
     private String phoneNumber;
 
-    public Employee(String name, String userName, String password, String email, String phoneNumber) {
+    public Employee(Integer employeeID, String name, String userName, String password, String email, String phoneNumber) {
+        this.employeeID = employeeID;
         this.name = name;
         this.userName = userName;
         this.password = password;
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
+
+    public Integer getEmployeeID() {
+        return employeeID;
+    }
+
+    public void setEmployeeID(Integer employeeID) {
+        this.employeeID = employeeID;
+    }
+    
 
     public String getName() {
         return name;

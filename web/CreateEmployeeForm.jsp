@@ -9,30 +9,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Create Account</title>
+        <title>Create Employee</title>
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
-        <h1>Create an Account</h1>
+        <h1>Create Employee</h1>
         <div class ="form">
-        <form action="CreateAccount" method=POST">
+        <form action="CreateEmployee" method=POST">
+              <label for="txtName">Name: </label> 
+              <input id="txtName" name="Name" type="text">
+              
               <label for="txtUsername">Username: </label> 
               <input id="txtUsername" name="Username" type="text">
               
-              <label for="txtName">Full Name: </label> 
-              <input id="txtName" name="Name" type="text">
+              <label for="txtPassword">Password: </label> 
+              <input id="txtPassword" name="Password" type="password">
               
-              <label for="txtName">Credit Card: </label> 
-              <input id="txtName" name="CreditCard" type="text">
-              
-              <label for="password">Password: </label> 
-              <input id="password" name="Password" type="password">
-              
-              <label for="txtEmail">Email Address: </label> 
+              <label for="txtEmail">Email: </label> 
               <input id="txtEmail" name="Email" type="text">
               
-              <label for="txtAddress">Address: </label> 
-              <input id="txtAddress" name="Address" type="text">
+              <label for="txtPhoneNumber">Phone Number: </label> 
+              <input id="txtPhoneNumber" name="PhoneNumber" type="text">
               
               <button type="submit">Submit</button>
         </form>

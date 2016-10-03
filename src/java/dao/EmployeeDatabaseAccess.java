@@ -36,7 +36,7 @@ public class EmployeeDatabaseAccess {
     }
 
     public void saveEmployee(Employee e) {
-        String sql = "merge into employees (name, username, password, email, phonenumber) values (?,?,?,?,?)";
+        String sql = "insert into employees (name, username, password, email, phonenumber) values (?,?,?,?,?)";
         
         try (   
                 Connection dbCon = JdbcConnection.getConnection(url);
@@ -49,6 +49,52 @@ public class EmployeeDatabaseAccess {
                 stmt.setString(5, e.getPhoneNumber());
                 stmt.executeUpdate();
                 
+        } catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
+    
+    public Employee getEmployeeUserName(String searchUsername){
+        String sql = "select * from employees where username = ?";
+        
+        try (
+                Connection dbCon = JdbcConnection.getConnection(url);
+                PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+                stmt.setString(1, searchUsername);
+                ResultSet rs = stmt.executeQuery();      
+                if(rs.next()) {                  
+                    Integer customerID = rs.getInt("employeeid");
+                    String name = rs.getString("name");
+                    String username = rs.getString("username");
+                    String password = rs.getString("password"); //possibly remove
+                    String email = rs.getString("email");
+                    String phonenumber = rs.getString("phonenumber");
+                    Employee e = new Employee(customerID, name, username, password, email, phonenumber);
+                    return e;
+                }else{
+                    return null;
+                }
+        } catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
+    
+    public String getPasswordHash(String searchUsername){
+        String sql = "select * from employees where username = ?";
+        
+        try (
+                Connection dbCon = JdbcConnection.getConnection(url);
+                PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+                stmt.setString(1, searchUsername);
+                ResultSet rs = stmt.executeQuery();      
+                if(rs.next()) {
+                    String password = rs.getString("password");
+                    return password;
+                }else{
+                    return null;
+                }
         } catch (SQLException ex) {
             throw new DAOException(ex.getMessage(), ex);
         }
