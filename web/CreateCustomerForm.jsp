@@ -15,7 +15,7 @@
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
         <h1>Create Customer</h1>
         <div class ="form">
-        <form action="CreateAccount" method=POST">
+        <form action="CreateCustomer" method=POST">
               <label for="txtName">Full Name: </label> 
               <input id="txtName" name="Name" type="text">
               
