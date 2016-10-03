@@ -13,11 +13,7 @@
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
-        <%if (customer != null) {%>
-            <h1>Welcome to the Shop, <%= customer.getName()%></h1>
-        <%} else {%>
-            <h1>Welcome to the Shop</h1>
-        <%}%>
-
+        <h1>Home Page</h1>
+        <p id="center">Ur grass gon be cut tbh</p>
     </body>
 </html>
