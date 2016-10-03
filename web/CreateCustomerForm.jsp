@@ -12,6 +12,7 @@
         <title>Create Account</title>
     </head>
     <body>
+        memes
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
         <h1>Create an Account</h1>
         <div class ="form">
