@@ -22,7 +22,7 @@ import net.sf.oval.Validator;
  *
  * @author Rory
  */
-@WebServlet(name = "CreateAccount", urlPatterns = {"/CreateAccount"})
+@WebServlet(name = "CreateCustomer", urlPatterns = {"/CreateCustomer"})
 public class CreateCustomer extends HttpServlet {
 
     CustomerDatabaseAccess cda = new CustomerDatabaseAccess();
@@ -38,22 +38,24 @@ public class CreateCustomer extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer customerID = -1; //placeholder id, real id is assigned when saved to the db
-        String name = request.getParameter("Username");
-        String address = request.getParameter("Name");
-        String email = request.getParameter("CreditCard");
-        String phoneNumber = request.getParameter("Password");
-        String sectionSize = request.getParameter("Email");
+        String name = request.getParameter("Name");
+        String address = request.getParameter("Address");
+        String email = request.getParameter("Email");
+        String phoneNumber = request.getParameter("PhoneNumber");
+        String sectionSize = request.getParameter("SectionSize");
 
         Customer c = new Customer(customerID, name, address, email, phoneNumber, sectionSize);
         
-
+        cda.saveCustomer(c);
+        response.sendRedirect("index.jsp");
+        
+        /*
         Validator validator = new Validator();
         List<ConstraintViolation> violations = validator.validate(c);
 
         // were there any violations?
         if (violations.isEmpty()) {
-            cda.saveCustomer(c);
-            response.sendRedirect("index.jsp");
+            
         } else {
             StringBuilder message = new StringBuilder();
             message.append("<ul>\n");
@@ -68,6 +70,7 @@ public class CreateCustomer extends HttpServlet {
             response.sendError(422, message.toString());
         }
 
+    */
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

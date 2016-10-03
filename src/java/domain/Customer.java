@@ -11,7 +11,7 @@ package domain;
  */
 public class Customer {
     private Integer customerID;
-    private String Name;
+    private String name;
     private String address;
     private String email;
     private String phoneNumber;
@@ -19,9 +19,9 @@ public class Customer {
     
     //collection of jobs?
 
-    public Customer(Integer customerID, String Name, String address, String email, String phoneNumber, String sectionSize) {
+    public Customer(Integer customerID, String name, String address, String email, String phoneNumber, String sectionSize) {
         this.customerID = customerID;
-        this.Name = Name;
+        this.name = name;
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -39,11 +39,11 @@ public class Customer {
 
     
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String Name) {
-        this.Name = Name;
+        this.name = Name;
     }
 
     public String getAddress() {

@@ -31,7 +31,7 @@ public class CustomerDatabaseAccess {
     }
 
     public void saveCustomer(Customer c) {
-        String sql = "merge into customers (name, address, email, phonenumber, sectionsize) values (?,?,?,?,?)";
+        String sql = "insert into customers (name, address, email, phonenumber, sectionsize) values (?,?,?,?,?)";
         
         try (   
                 Connection dbCon = JdbcConnection.getConnection(url);
