@@ -10,6 +10,7 @@ package domain;
  * @author Rory
  */
 public class Customer {
+    private Integer customerID;
     private String Name;
     private String address;
     private String email;
@@ -18,13 +19,24 @@ public class Customer {
     
     //collection of jobs?
 
-    public Customer(String Name, String address, String email, String phoneNumber, String sectionSize) {
+    public Customer(Integer customerID, String Name, String address, String email, String phoneNumber, String sectionSize) {
+        this.customerID = customerID;
         this.Name = Name;
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.sectionSize = sectionSize;
     }
+    
+
+    public Integer getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(Integer customerID) {
+        this.customerID = customerID;
+    }
+
     
     public String getName() {
         return Name;

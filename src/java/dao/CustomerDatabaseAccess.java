@@ -31,7 +31,7 @@ public class CustomerDatabaseAccess {
     }
 
     public void saveCustomer(Customer c) {
-        String sql = "merge into customers (name, address, email, phonenumber, sectionsize) values (?,?,?,?)";
+        String sql = "merge into customers (name, address, email, phonenumber, sectionsize) values (?,?,?,?,?)";
         
         try (   
                 Connection dbCon = JdbcConnection.getConnection(url);
@@ -41,8 +41,9 @@ public class CustomerDatabaseAccess {
                 stmt.setString(2, c.getAddress());
                 stmt.setString(3, c.getEmail());
                 stmt.setString(4, c.getPhoneNumber());
-                stmt.setString(4, c.getSectionSize());
+                stmt.setString(5, c.getSectionSize());
                 stmt.executeUpdate();
+                
         } catch (SQLException ex) {
             throw new DAOException(ex.getMessage(), ex);
         }
@@ -56,13 +57,16 @@ public class CustomerDatabaseAccess {
         ) {
                 ResultSet rs = stmt.executeQuery();
                 List<Customer> customers = new ArrayList<>();
+                
+                
                 while (rs.next()) {
+                    Integer customerID = rs.getInt("uid");
                     String name = rs.getString("name");
                     String address = rs.getString("address");
                     String email = rs.getString("email");
                     String phoneNumber = rs.getString("phonenumber");
                     String sectionSize = rs.getString("sectionsize");
-                    Customer c = new Customer(name, address, email, phoneNumber, sectionSize);
+                    Customer c = new Customer(customerID, name, address, email, phoneNumber, sectionSize);
                     customers.add(c);
                 }
                 return customers;
@@ -71,24 +75,23 @@ public class CustomerDatabaseAccess {
         }
     }
 
-    /*
-    public Customer searchCustomerName(String name) {
-        String sql = "select * from products where productid = ?";
+    public Customer searchCustomerName(String searchName) {
+        String sql = "select * from customers where name = ?";
         try (
                 Connection dbCon = JdbcConnection.getConnection(url);
                 PreparedStatement stmt = dbCon.prepareStatement(sql);
         ) {
-                stmt.setInt(1, id);
+                stmt.setString(1, searchName);
                 ResultSet rs = stmt.executeQuery();      
                 if(rs.next()) {                  
-                    Integer productID = rs.getInt("productid");
+                    Integer customerID = rs.getInt("uid");
                     String name = rs.getString("name");
-                    String description = rs.getString("description");
-                    String category = rs.getString("category");
-                    Double price = rs.getDouble("price");
-                    Integer quantityInStock = rs.getInt("quantity");
-                    Product p = new Product(productID, name, description, category, price, quantityInStock);
-                    return p;
+                    String address = rs.getString("address");
+                    String email = rs.getString("email");
+                    String phoneNumber = rs.getString("phonenumber");
+                    String sectionSize = rs.getString("sectionsize");
+                    Customer c = new Customer(customerID, name, address, email, phoneNumber, sectionSize);
+                    return c;
                 }else{
                     return null;
                 }
@@ -96,21 +99,45 @@ public class CustomerDatabaseAccess {
             throw new DAOException(ex.getMessage(), ex);
         }
     }
-    */
-
-    /*
-    public void deleteCustomer(Customer c) {
-        String sql = "delete from customers where productid = ?";
+    
+    public Customer searchCustomerID(Integer id) {
+        String sql = "select * from customers where uid = ?";
         try (
                 Connection dbCon = JdbcConnection.getConnection(url);
                 PreparedStatement stmt = dbCon.prepareStatement(sql);
         ) {
-                stmt.setInt(1, c.getProductID());
+                stmt.setInt(1, id);
+                ResultSet rs = stmt.executeQuery();      
+                if(rs.next()) {                  
+                    Integer customerID = rs.getInt("uid");
+                    String name = rs.getString("name");
+                    String address = rs.getString("address");
+                    String email = rs.getString("email");
+                    String phoneNumber = rs.getString("phonenumber");
+                    String sectionSize = rs.getString("sectionsize");
+                    Customer c = new Customer(customerID, name, address, email, phoneNumber, sectionSize);
+                    return c;
+                }else{
+                    return null;
+                }
+        } catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
+
+    
+    public void deleteCustomer(Customer c) {
+        String sql = "delete from customers where uid = ?";
+        try (
+                Connection dbCon = JdbcConnection.getConnection(url);
+                PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+                stmt.setInt(1, c.getCustomerID());
                 stmt.executeUpdate();
         }catch (SQLException ex) {
             throw new DAOException(ex.getMessage(), ex);
         }
-    }*/
+    }
     
     //edit customer method
 }

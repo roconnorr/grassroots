@@ -13,23 +13,25 @@ import java.util.Date;
  */
 public class Job {
     private Double chargeRate;
-    private Employee employee;
-    private Customer customer;
+    private Integer employeeID;
+    private Integer customerID;
     private Date date;
-    private enum Frequency {WEEKLY, FORTNIGHTLY, MONTHLY};
+    public enum Frequency {WEEKLY, FORTNIGHTLY, MONTHLY};
     private Frequency frequency;
     private String description;
+    private String status;
 
-    public Job(Double chargeRate, Employee employee, Date date, Frequency frequency, String description) {
+    public Job(Double chargeRate, Integer employeeID, Integer customerID, Date date, Frequency frequency, String description, String status) {
         this.chargeRate = chargeRate;
-        this.employee = employee;
+        this.employeeID = employeeID;
+        this.customerID = customerID;
         this.date = date;
         this.frequency = frequency;
         this.description = description;
+        this.status = status;
     }
 
     
-
     public Double getChargeRate() {
         return chargeRate;
     }
@@ -38,12 +40,20 @@ public class Job {
         this.chargeRate = chargeRate;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public Integer getEmployeeID() {
+        return employeeID;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmployeeID(Integer employeeID) {
+        this.employeeID = employeeID;
+    }
+
+    public Integer getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(Integer customerID) {
+        this.customerID = customerID;
     }
 
     public Date getDate() {
@@ -69,4 +79,15 @@ public class Job {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    
+
 }

@@ -53,7 +53,7 @@ public class CreateEmployee extends HttpServlet {
 
         // were there any violations?
         if (violations.isEmpty()) {
-            //eda.saveEmployee(e);
+            eda.saveEmployee(e);
             response.sendRedirect("index.jsp");
         } else {
             StringBuilder message = new StringBuilder();
