@@ -142,10 +142,6 @@ table td, table th {
     content: "$";
 }
 
-#money {
-    text-align: right;
-}
-
 #break {
     margin-bottom: 20px;
 }

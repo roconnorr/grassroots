@@ -46,7 +46,7 @@
                     <tr>
                         <td><a href="CustomerDetails.jsp?id=<%=job.getCustomerID()%>"><%= cDAO.searchCustomerID(job.getCustomerID()).getName()%></a></td>
                         <td><a href="EmployeeDetails.jsp?id=<%=job.getEmployeeID()%>"><%= eDAO.searchEmployeeID(job.getEmployeeID()).getName()%></a></td>
-                        <td><%= job.getChargeRate()%></td>
+                        <td id="money"><%= job.getChargeRate()%></td>
                         <td><%= job.getDate()%></td>
                         <td><%= job.getFrequency()%></td>
                         <td><%= job.getDescription()%></td>
