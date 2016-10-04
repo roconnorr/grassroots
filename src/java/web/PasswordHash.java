@@ -5,6 +5,7 @@
  */
 package web;
 
+import dao.AdminDatabaseAccess;
 import dao.EmployeeDatabaseAccess;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -17,8 +18,27 @@ public class PasswordHash {
     
     public static final String SALT = "my-salt-text";
     EmployeeDatabaseAccess eda = new EmployeeDatabaseAccess();
+    AdminDatabaseAccess ada = new AdminDatabaseAccess();
     
     public Boolean login(String username, String password) {
+        Boolean isAuthenticated;
+
+        // remember to use the same SALT value use used while storing password
+        // for the first time.
+        String saltedPassword = SALT + password;
+        String hashedPassword = generateHash(saltedPassword);
+
+        String storedPasswordHash = eda.getPasswordHash(username);
+        if (hashedPassword.equals(storedPasswordHash)) {
+            isAuthenticated = true;
+        } else {
+            isAuthenticated = false;
+        }
+        return isAuthenticated;
+        
+    }
+    
+    public Boolean adminLogin(String username, String password) {
         Boolean isAuthenticated;
 
         // remember to use the same SALT value use used while storing password

@@ -5,30 +5,22 @@
  */
 package web;
 
-import dao.EmployeeDatabaseAccess;
-import domain.Customer;
-import domain.Employee;
+import dao.AdminDatabaseAccess;
+import domain.Admin;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  *
- * @author ocoro749
+ * @author Rory
  */
-@WebServlet(name = "Login", urlPatterns = {"/Login"})
-public class Login extends HttpServlet {
+@WebServlet(name = "CreateAdmin", urlPatterns = {"/CreateAdmin"})
+public class CreateAdmin extends HttpServlet {
 
-    EmployeeDatabaseAccess eda = new EmployeeDatabaseAccess();
+    AdminDatabaseAccess ada = new AdminDatabaseAccess();
     PasswordHash pHash = new PasswordHash();
 
     /**
@@ -41,24 +33,44 @@ public class Login extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("Username");
-        String password = request.getParameter("Password");
+        
+        //manually enter details to make admins
+        String userName = "";
+        String password = "";
+        
+        String saltedPassword = pHash.SALT + password;
+        String hashedPassword = pHash.generateHash(saltedPassword);
 
-        HttpSession session = request.getSession();
+        Admin a = new Admin(userName, hashedPassword);
+        
+        ada.saveAdmin(a);
+        response.sendRedirect("index.jsp");
+        
+        /*
+        Validator validator = new Validator();
+        List<ConstraintViolation> violations = validator.validate(e);
 
-        Employee employee = eda.searchEmployeeUserName(username);
-
-        if (employee != null) {
-            if (pHash.login(username, password) == true) {
-                session.setAttribute("user", employee);
-                response.sendRedirect("index.jsp");
-            }
+        // were there any violations?
+        if (violations.isEmpty()) {
+            eda.saveEmployee(e);
+            response.sendRedirect("index.jsp");
         } else {
-            response.sendRedirect("Login.jsp");
+            StringBuilder message = new StringBuilder();
+            message.append("<ul>\n");
+
+            //	loop through the violations extracting the message for each
+            for (ConstraintViolation violation : violations) {
+                message.append("<li>").append(violation.getMessage()).append("</li>\n");
+            }
+            
+            message.append("</ul>");
+
+            response.sendError(422, message.toString());
         }
+        */
 
     }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
