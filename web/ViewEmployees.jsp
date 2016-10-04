@@ -37,7 +37,7 @@
                     </tr>
                     <% for (Employee emp : dao.getEmployees()) { %>
                     <tr>
-                        <td><%= emp.getName()%></td>
+                        <td><a href="EmployeeDetails.jsp?id=<%=emp.getEmployeeID()%>"><%= emp.getName()%></a></td>
                         <td><%= emp.getUserName()%></td>
                         <td><%= emp.getEmail()%></td>
                         <td><%= emp.getPhoneNumber()%></td>

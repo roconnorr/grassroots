@@ -36,8 +36,13 @@
                             <option value="<%= emp.getEmployeeID()%>" ><%= emp.getName()%></option>
                             <% }%>
                         </select></p>
+                        <p><label for="Frequency">Frequency</label><br>
+                        <select name="Frequency">
+                            <option value="Weekly" >Weekly</option>
+                            <option value="Fortnightly" >Fortnightly</option>
+                            <option value="Monthly" >Monthly</option>
+                        </select></p>
                         <input name="Day" type="text" placeholder="Day">
-                        <input name="Frequency" type="text" placeholder="Frequency">
                         <input name="Rate" type="text" placeholder="Rate">
                         <input name="Description" type="text" placeholder="Decription">
                         <input name="Status" type="text" placeholder="Status">
