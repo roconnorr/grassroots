@@ -16,7 +16,7 @@ public class Job {
     private Integer employeeID;
     private Integer customerID;
     private String date;
-    public enum Frequency {WEEKLY, FORTNIGHTLY, MONTHLY};
+    public enum Frequency {Weekly, Fortnightly, Monthly};
     private Frequency frequency;
     private String description;
     private String status; //make enum?
