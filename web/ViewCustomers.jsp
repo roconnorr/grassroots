@@ -28,11 +28,13 @@
             <div class="content">
                 <table cellspacing="0">
                     <tr>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Phone Number</th>
-                        <th>Email</th>
-                        <th>Section Size</th>
+                        <th width="200" id="left">Name</th>
+                        <th width="300" id="left">Address</th>
+                        <th width="150" id="left">Ph Number</th>
+                        <th width="300" id="left">Email</th>
+                        <th width="100" id="left">Section Size</th>
+                        <th width="50">Edit</th>
+                        <th width="50">Delete</th>
                     </tr>
                     <% for (Customer customer : dao.getCustomers()) { %>
                     <tr>

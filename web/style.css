@@ -52,20 +52,23 @@ h2 {
 
 table {
     margin-top: 16px;
+    margin-bottom: 16px;
     margin-left: auto;
     margin-right: auto;
+    border: solid 2px #406e0f;
 }
 
 table tr {
-    background-color: #5f8f2b
+    background-color: #b5d88f
 }
 
 table tr:nth-child(even) {
-    background-color: #75a740
+    background-color: #a4c97c
 }
 
 table th {
-    background-color: #406e0f;
+    background-color: #75a740;
+    color: #23360e;
 }
 
 table td, table th {
