@@ -87,11 +87,14 @@ table td, table th {
     text-align: center;
 }
 
-
 .form input {
     width: 100%;
     clear: both;
     margin-bottom: 1em;
+}
+
+.form select {
+    width: 101%;
 }
 
 /*Button Stuff*/

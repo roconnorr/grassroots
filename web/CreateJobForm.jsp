@@ -24,21 +24,18 @@
             <div class="content">
                 <div class ="form">
                     <form action="CreateJob" method=POST">
-                        <p>
-                            <label for="Customer">Customer:</label>
-                            <select name="Customer">
-                                <% for (Customer cust : cDAO.getCustomers()) {%>
-                                <option value="<%= cust.getName()%>" ><%= cust.getName()%></option>
-                                <% } %>
-                            </select>
-                        </p><p>
-                            <label for="Employee">Employee:</label>
-                            <select name="Employee">
-                                <% for (Employee emp : eDAO.getEmployees()) {%>
-                                <option value="<%= emp.getName()%>" ><%= emp.getName()%></option>
-                                <% }%>
-                            </select>
-                        </p>
+                        <p><label for="Customer">Customer:</label><br>
+                        <select name="Customer">
+                            <% for (Customer cust : cDAO.getCustomers()) {%>
+                            <option value="<%= cust.getName()%>" ><%= cust.getName()%></option>
+                            <% } %>
+                        </select></p>
+                        <p><label for="Employee">Employee:</label><br>
+                        <select name="Employee">
+                            <% for (Employee emp : eDAO.getEmployees()) {%>
+                            <option value="<%= emp.getName()%>" ><%= emp.getName()%></option>
+                            <% }%>
+                        </select></p>
                         <input name="Day" type="text" placeholder="Day">
                         <input name="Rate" type="text" placeholder="Rate">
                         <input name="Description" type="text" placeholder="Decription">
