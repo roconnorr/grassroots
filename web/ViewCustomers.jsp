@@ -4,6 +4,11 @@
     Author     : Rory
 --%>
 
+<%@page import="dao.CustomerDatabaseAccess"%>
+<%
+    CustomerDatabaseAccess dao = new CustomerDatabaseAccess();
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

@@ -1,4 +1,3 @@
-<%-- any content can be specified here e.g.: --%>
 <%@page import="domain.Employee"%>
 <%@ page pageEncoding="UTF-8" %>
 <link rel="stylesheet" type="text/css" href="style.css">
