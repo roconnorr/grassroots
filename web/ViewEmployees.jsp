@@ -15,13 +15,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Customer Details</title>
+        <title>Employee Details</title>
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
         <div class="back">
             <div class="content">
-                <h1>Customer Details</h1>
+                <h1>Employee Details</h1>
             </div>
         </div>
         <div class="back">

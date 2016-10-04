@@ -24,11 +24,12 @@
                     <tr>
                         <td><p id="button"><a href="CreateCustomerForm.jsp">Create Customer</a></p></td>
                         <td><p id="button"><a href="CreateEmployeeForm.jsp">Create Employee</a></p></td>
+                        <td><p id="button"><a href="CreateJobForm.jsp">Create Job</a></p></td>
                     </tr><tr>
                         <td><p id="button"><a href="ViewCustomers.jsp">View Customers</a></p></td>
                         <td><p id="button"><a href="ViewEmployees.jsp">View Employees</a></p></td>
-                    </tr><tr>
-                        <td><p id="button"><a href="CreateJobForm.jsp">New Job</a></p></td>
+                        <td><p id="button"><a href="ViewJobs.jsp">View Jobs</a></p></td>
+                        <td></td>
                     </tr>
                 </table>
             </div>
