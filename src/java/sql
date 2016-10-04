@@ -68,3 +68,11 @@ CREATE TABLE jobs
   FOREIGN KEY      (employeeid) REFERENCES employees(employeeid),
   FOREIGN KEY      (customerid) REFERENCES customers(uid)                           
 );
+
+CREATE TABLE admins
+(
+  adminid          INT unsigned NOT NULL AUTO_INCREMENT,   
+  username         VARCHAR(150) NOT NULL,            
+  password         VARCHAR(150) NOT NULL,                
+  PRIMARY KEY     (adminid)                                  
+);
