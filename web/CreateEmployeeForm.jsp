@@ -14,6 +14,7 @@
     <body>
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
         <h1>Create Employee</h1>
+        <div class="back"><div class="content">
         <div class ="form">
         <form action="CreateEmployee" method=POST">
               <label for="txtName">Name: </label> 
@@ -33,6 +34,6 @@
               
               <button type="submit">Submit</button>
         </form>
-        </div>
+        </div></div></div>
     </body>
 </html>

@@ -14,6 +14,7 @@
     <body>
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
         <h1>Create Customer</h1>
+        <div class="back"><div class="content">
         <div class ="form">
         <form action="CreateCustomer" method=POST">
               <label for="txtName">Full Name: </label> 
@@ -33,6 +34,6 @@
               
               <button type="submit">Submit</button>
         </form>
-        </div>
+        </div></div></div>
     </body>
 </html>
