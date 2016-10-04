@@ -18,8 +18,8 @@ import java.util.logging.Logger;
  */
 public class JdbcConnection {
 
-    private static final String username = "grassrootsuser"; // H2 default
-    private static final String password = "mysqlPass7878"; // H2 default
+    private static final String username = "grassrootsuser";
+    private static final String password = "mysqlPass7878";
     private static Connection conn = null;
     
 
