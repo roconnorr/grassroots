@@ -1,8 +1,13 @@
-<%-- 
-    Document   : CreateAccountForm
-    Created on : 8/09/2016, 2:18:37 PM
-    Author     : Rory
---%>
+<%@page import="domain.Employee"%>
+<%@page import="dao.EmployeeDatabaseAccess"%>
+<%
+    Employee emp = null;
+    if (request.getParameter("id") != null) {
+        EmployeeDatabaseAccess eDAO = new EmployeeDatabaseAccess();
+        int employeeID = Integer.parseInt(request.getParameter("id"));
+        emp = eDAO.searchEmployeeID(employeeID);
+    }
+%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,12 +27,17 @@
             <div class="content">
                 <div class ="form">
                     <form action="CreateEmployee" method=POST">
+                        <% if (request.getParameter("id") != null) { %>
+                        <input name="Name" type="text" placeholder="Full Name" value="<%=emp.getName()%>">
+                        <input name="Email" type="text" placeholder="Email" value="<%=emp.getEmail()%>">
+                        <input name="PhoneNumber" type="text" placeholder="Phone Number" value="<%=emp.getPhoneNumber()%>">
+                        <% } else { %>
                         <input name="Name" type="text" placeholder="Full Name">
                         <input name="Username" type="text" placeholder="Username">
                         <input name="Password" type="password" placeholder="Password">
                         <input name="Email" type="text" placeholder="Email">
                         <input name="PhoneNumber" type="text" placeholder="Phone Number">
-
+                        <% }%>
                         <button type="submit">Submit</button>
                     </form>
                 </div>

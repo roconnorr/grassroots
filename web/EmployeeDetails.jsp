@@ -35,6 +35,10 @@
                 <label>Phone Number: </label>
                 <%= emp.getPhoneNumber()%>
                 </p>
+                <p id="button">
+                    <a href="CreateCustomerForm.jsp?id=<%=customer.getCustomerID()%>">Edit</a>
+                    <a href="">Delete</a>
+                </p>
             </div>
         </div>
     </body>
