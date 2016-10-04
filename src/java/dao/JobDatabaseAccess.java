@@ -80,6 +80,20 @@ public class JobDatabaseAccess {
             throw new DAOException(ex.getMessage(), ex);
         }
     }
+    
+    public void deleteJob(Job j) {
+        String sql = "delete from jobs where employeeid = ? and customerid = ?";
+        try (
+                Connection dbCon = JdbcConnection.getConnection(url);
+                PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+                stmt.setInt(1, j.getEmployeeID());
+                stmt.setInt(2, j.getCustomerID());
+                stmt.executeUpdate();
+        }catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
 
     /*
     public Customer searchCustomerName(String searchName) {

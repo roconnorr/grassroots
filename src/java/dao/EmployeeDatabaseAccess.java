@@ -146,4 +146,17 @@ public class EmployeeDatabaseAccess {
             throw new DAOException(ex.getMessage(), ex);
         }
     }
+    
+    public void deleteEmployee(Employee e) {
+        String sql = "delete from employees where employeeid = ?";
+        try (
+                Connection dbCon = JdbcConnection.getConnection(url);
+                PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+                stmt.setInt(1, e.getEmployeeID());
+                stmt.executeUpdate();
+        }catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
 }
