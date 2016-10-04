@@ -13,7 +13,11 @@
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
-        <h1>Login</h1>
+        <div class="back">
+            <div class="content">
+                <h1>Log In</h1>
+            </div>
+        </div>
         <div class="back">
             <div class="content">
                 <div class="form">

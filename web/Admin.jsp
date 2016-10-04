@@ -22,6 +22,7 @@
             <div class="content" id="center">
                 <div class="button">
                     <p id="button"><a href="CreateCustomerForm.jsp">Create Customer</a></p>
+                    <p id="button"><a href="ViewCustomers.jsp">View Customers</a></p>
                     <p id="button"><a href="CreateEmployeeForm.jsp">Create Employee</a></p>
                 </div>
             </div>

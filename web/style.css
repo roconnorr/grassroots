@@ -12,7 +12,7 @@
 }
 
 body {
-    font-family: monospace;
+    font-family: 'Open Sans', sans-serif;
     background-color: #b5d88f;
     background-image: url("resources/background.png");
     font-size: 16px;
@@ -33,11 +33,15 @@ body {
 }
 
 h1 {
-    color: black;
+    font-family: 'Patua One', cursive;
+    color: #23360e;
+    font-size: 40px;
     text-align: center;
 }
 
 h2 {
+    font-family: 'Patua One', cursive;
+    color: #23360e;
     text-decoration: underline;
 }
 

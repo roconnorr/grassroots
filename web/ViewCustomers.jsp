@@ -9,9 +9,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Customer Details</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
+        <div class="back">
+            <div class="content">
+                <h1>Customer Details</h1>
+            </div>
+        </div>
+        <div class="back">
+            <div class="content">
+                <p id="center">memes</p>
+            </div>
+        </div>
     </body>
 </html>
