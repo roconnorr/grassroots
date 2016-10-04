@@ -12,8 +12,7 @@
 <div class="navigation">
     <div class="button">
         <a href="index.jsp">Home</a>
-        <a href="CreateCustomerForm.jsp">Create Customer</a>
-        <a href="CreateEmployeeForm.jsp">Create Employee</a>
+        <a href="Admin.jsp">Control Panel</a>
         <%if (employee != null) {%>
         <a href="/shop/Logout">Admin Logout</a>
         <%} else {%>
