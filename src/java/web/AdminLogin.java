@@ -43,7 +43,7 @@ public class AdminLogin extends HttpServlet {
         Admin admin = ada.searchAdminUserName(username);
 
         if (admin != null) {
-            if (pHash.login(username, password) == true) {
+            if (pHash.adminLogin(username, password) == true) {
                 session.setAttribute("admin", admin);
                 response.sendRedirect("index.jsp");
             }
