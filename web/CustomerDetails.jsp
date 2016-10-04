@@ -23,20 +23,24 @@
         <div class="back">
             <div class="content">
                 <p>
-                <label>Name: </label>
-                <%= customer.getName() %>
+                    <label>Name: </label>
+                    <%= customer.getName()%>
                 </p><p>
-                <label>Address: </label>
-                <%= customer.getAddress()%>
+                    <label>Address: </label>
+                    <%= customer.getAddress()%>
                 </p><p>
-                <label>Email: </label>
-                <%= customer.getEmail()%>
+                    <label>Email: </label>
+                    <%= customer.getEmail()%>
                 </p><p>
-                <label>Phone Number: </label>
-                <%= customer.getPhoneNumber()%>
+                    <label>Phone Number: </label>
+                    <%= customer.getPhoneNumber()%>
                 </p><p>
-                <label>Section Size: </label>
-                <%= customer.getSectionSize()%>
+                    <label>Section Size: </label>
+                    <%= customer.getSectionSize()%>
+                </p>
+                <p id="button">
+                    <a href="CreateEmployeeForm.jsp?id=<%=employee.getEmployeeID()%>">Edit</a>
+                    <a href="">Delete</a>
                 </p>
             </div>
         </div>
