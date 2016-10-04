@@ -7,6 +7,7 @@ package web;
 
 import dao.EmployeeDatabaseAccess;
 import domain.Customer;
+import domain.Employee;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,6 +16,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -22,9 +27,10 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
-   
+
     EmployeeDatabaseAccess eda = new EmployeeDatabaseAccess();
-    
+    PasswordHash pHash = new PasswordHash();
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,18 +43,20 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("Username");
         String password = request.getParameter("Password");
-        
+
         HttpSession session = request.getSession();
-        
-        //Employee e = eda.login(username, password);
-        
-        /*if(c != null){
-            session.setAttribute("user", c);
-            response.sendRedirect("index.jsp");
-        }else{
+
+        Employee employee = eda.getEmployeeUserName(username);
+
+        if (employee != null) {
+            if (pHash.login(username, password) == true) {
+                session.setAttribute("user", employee);
+                response.sendRedirect("index.jsp");
+            }
+        } else {
             response.sendRedirect("Login.jsp");
-        }*/
-            
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

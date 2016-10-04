@@ -11,6 +11,8 @@ import domain.Customer;
 import domain.Employee;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,10 +26,11 @@ import net.sf.oval.Validator;
  *
  * @author Rory
  */
-@WebServlet(name = "CreateAccount", urlPatterns = {"/CreateAccount"})
+@WebServlet(name = "CreateEmployee", urlPatterns = {"/CreateEmployee"})
 public class CreateEmployee extends HttpServlet {
 
     EmployeeDatabaseAccess eda = new EmployeeDatabaseAccess();
+    PasswordHash pHash = new PasswordHash();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,15 +42,22 @@ public class CreateEmployee extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("Username");
-        String userName = request.getParameter("Name");
-        String password = request.getParameter("CreditCard");
-        String email = request.getParameter("Password");
-        String phoneNumber = request.getParameter("Email");
-
-        Employee e = new Employee(name, userName, password,  email, phoneNumber);
+        Integer employeeID = -1; //temp id, real one assigned in db
+        String name = request.getParameter("Name");
+        String userName = request.getParameter("Username");
+        String password = request.getParameter("Password");
+        String email = request.getParameter("Email");
+        String phoneNumber = request.getParameter("PhoneNumber");
         
+        String saltedPassword = pHash.SALT + password;
+        String hashedPassword = pHash.generateHash(saltedPassword);
 
+        Employee e = new Employee(employeeID, name, userName, hashedPassword,  email, phoneNumber);
+        
+        eda.saveEmployee(e);
+        response.sendRedirect("index.jsp");
+        
+        /*
         Validator validator = new Validator();
         List<ConstraintViolation> violations = validator.validate(e);
 
@@ -68,9 +78,10 @@ public class CreateEmployee extends HttpServlet {
 
             response.sendError(422, message.toString());
         }
+        */
 
     }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
