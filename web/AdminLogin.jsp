@@ -17,18 +17,15 @@
         <div class="back">
             <div class="content">
                 <div class="form">
-                    <form action="Login" method=POST">
+                    <form action="AdminLogin" method=POST">
                         <label for="txtUsername">Username: </label> 
                         <input id="txtUsername" name="Username" type="text">
 
                         <label for="txtName">Password: </label> 
                         <input id="txtPassword" name="Password" type="password">
                         <button type="submit" class="button">Login</button> 
+                        <p id="button"><a href="CreateAccountForm.jsp">Create Account</a></p>
                     </form> 
-                </div>
-                <br>
-                <div class="button" id="center">
-                    <p id="break"><a href="CreateAccountForm.jsp">Create Account</a></p>
                 </div>
             </div>
         </div>

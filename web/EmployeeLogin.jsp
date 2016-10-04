@@ -17,7 +17,7 @@
         <div class="back">
             <div class="content">
                 <div class="form">
-                    <form action="Login" method=POST">
+                    <form action="EmployeeLogin" method=POST">
                         <label for="txtUsername">Username: </label> 
                         <input id="txtUsername" name="Username" type="text">
 
