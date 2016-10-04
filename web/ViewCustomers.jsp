@@ -43,6 +43,8 @@
                         <td><%= customer.getPhoneNumber()%></td>
                         <td><%= customer.getEmail()%></td>
                         <td><%= customer.getSectionSize()%></td>
+                        <td id="button"><a href="">Edit</a></td>
+                        <td id="button"><a href="">Delete</a></td>
                     </tr>
                     <% } %>
                 </table>

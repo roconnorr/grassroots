@@ -72,8 +72,8 @@ table th {
 }
 
 table td, table th {
-    padding-top: 1em;
-    padding-bottom: 0em;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
 }
 
 .form {
