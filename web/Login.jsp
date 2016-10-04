@@ -14,18 +14,23 @@
     <body>
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
         <h1>Login</h1>
-        <div class="form">
-            <form action="Login" method=POST">
-                <label for="txtUsername">Username: </label> 
-                <input id="txtUsername" name="Username" type="text">
+        <div class="back">
+            <div class="content">
+                <div class="form">
+                    <form action="Login" method=POST">
+                        <label for="txtUsername">Username: </label> 
+                        <input id="txtUsername" name="Username" type="text">
 
-                <label for="txtName">Password: </label> 
-                <input id="txtPassword" name="Password" type="password">
-                <button type="submit">Login</button> 
-            </form> 
-        </div>
-        <div class="newaccount">
-            <a href="CreateAccountForm.jsp">Create Account</a>
+                        <label for="txtName">Password: </label> 
+                        <input id="txtPassword" name="Password" type="password">
+                        <button type="submit" class="button">Login</button> 
+                    </form> 
+                </div>
+                <br>
+                <div class="button" id="center">
+                    <a href="CreateAccountForm.jsp">Create Account</a>
+                </div>
+            </div>
         </div>
     </body>
 </html>
