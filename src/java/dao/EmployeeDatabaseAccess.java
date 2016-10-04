@@ -54,6 +54,32 @@ public class EmployeeDatabaseAccess {
         }
     }
     
+    public Collection<Employee> getEmployees() {
+        String sql = "select * from employees order by name";
+        try (
+                Connection dbCon = JdbcConnection.getConnection(url);
+                PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+                ResultSet rs = stmt.executeQuery();
+                List<Employee> employees = new ArrayList<>();
+                
+                
+                while (rs.next()) {
+                    Integer customerID = rs.getInt("employeeid");
+                    String name = rs.getString("name");
+                    String username = rs.getString("username");
+                    String password = rs.getString("password"); //possibly remove
+                    String email = rs.getString("email");
+                    String phonenumber = rs.getString("phonenumber");
+                    Employee e = new Employee(customerID, name, username, password, email, phonenumber);
+                    employees.add(e);
+                }
+                return employees;
+        } catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
+    
     public Employee getEmployeeUserName(String searchUsername){
         String sql = "select * from employees where username = ?";
         
