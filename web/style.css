@@ -50,27 +50,25 @@ h2 {
     margin-top: 20px;
 }
 
-.table {
+table {
     margin-top: 16px;
     margin-left: auto;
     margin-right: auto;
-    border: solid 4px #4b757d;
 }
 
-table.center {
-    margin-left: auto;
-    margin-right: auto;
+table tr {
+    background-color: #5f8f2b
 }
 
-.table tr:nth-child(even) {
-    background-color: #afcdd3
+table tr:nth-child(even) {
+    background-color: #75a740
 }
 
-.table th {
-    background-color: #699098;
+table th {
+    background-color: #406e0f;
 }
 
-.table td, table th {
+table td, table th {
     padding-top: 1em;
     padding-bottom: 0em;
 }

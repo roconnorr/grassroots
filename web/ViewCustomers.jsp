@@ -4,6 +4,7 @@
     Author     : Rory
 --%>
 
+<%@page import="domain.Customer"%>
 <%@page import="dao.CustomerDatabaseAccess"%>
 <%
     CustomerDatabaseAccess dao = new CustomerDatabaseAccess();
@@ -25,7 +26,24 @@
         </div>
         <div class="back">
             <div class="content">
-                <p id="center">memes</p>
+                <table cellspacing="0">
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Section Size</th>
+                    </tr>
+                    <% for (Customer customer : dao.getCustomers()) { %>
+                    <tr>
+                        <td><%= customer.getName()%></td>
+                        <td><%= customer.getAddress()%></td>
+                        <td><%= customer.getPhoneNumber()%></td>
+                        <td><%= customer.getEmail()%></td>
+                        <td><%= customer.getSectionSize()%></td>
+                    </tr>
+                    <% } %>
+                </table>
             </div>
         </div>
     </body>
