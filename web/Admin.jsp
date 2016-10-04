@@ -9,9 +9,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Admin</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
+        <div class="back">
+            <div class="content">
+                <h1>Admin Control Panel</h1>
+            </div>
+        </div>
+        <div class="back">
+            <div class="content" id="center">
+                <div class="button">
+                    <p id="button"><a href="CreateCustomerForm.jsp">Create Customer</a></p>
+                    <p id="button"><a href="CreateEmployeeForm.jsp">Create Employee</a></p>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
