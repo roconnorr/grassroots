@@ -10,13 +10,13 @@
 <h2>Welcome <%= employee.getName()%></h2>
 <%}%>
 <div class="navigation">
-    <div class="button">
+    <div id="button">
         <a href="index.jsp">Home</a>
         <a href="Admin.jsp">Control Panel</a>
         <%if (employee != null) {%>
-        <a href="/shop/Logout">Admin Logout</a>
+        <a href="/shop/Logout">Logout</a>
         <%} else {%>
-        <a href="Login.jsp">Admin Login</a>
+        <a href="EmployeeLogin.jsp">Employee Login</a>
         <%}%>
     </div>
 </div>

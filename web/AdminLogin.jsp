@@ -28,7 +28,7 @@
                 </div>
                 <br>
                 <div class="button" id="center">
-                    <a href="CreateAccountForm.jsp">Create Account</a>
+                    <p id="break"><a href="CreateAccountForm.jsp">Create Account</a></p>
                 </div>
             </div>
         </div>

@@ -21,8 +21,8 @@
         <div class="back">
             <div class="content" id="center">
                 <div class="button">
-                    <p><a href="CreateCustomerForm.jsp">Create Customer</a></p>
-                    <p><a href="CreateEmployeeForm.jsp">Create Employee</a></p>
+                    <p id="button"><a href="CreateCustomerForm.jsp">Create Customer</a></p>
+                    <p id="button"><a href="CreateEmployeeForm.jsp">Create Employee</a></p>
                 </div>
             </div>
         </div>
