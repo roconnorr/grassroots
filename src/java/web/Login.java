@@ -46,7 +46,7 @@ public class Login extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        Employee employee = eda.getEmployeeUserName(username);
+        Employee employee = eda.searchEmployeeUserName(username);
 
         if (employee != null) {
             if (pHash.login(username, password) == true) {

@@ -75,7 +75,7 @@ public class EmployeeDatabaseAccess {
         }
     }
     
-    public Employee getEmployeeUserName(String searchUsername){
+    public Employee searchEmployeeUserName(String searchUsername){
         String sql = "select * from employees where username = ?";
         
         try (
@@ -83,6 +83,32 @@ public class EmployeeDatabaseAccess {
                 PreparedStatement stmt = dbCon.prepareStatement(sql);
         ) {
                 stmt.setString(1, searchUsername);
+                ResultSet rs = stmt.executeQuery();      
+                if(rs.next()) {                  
+                    Integer customerID = rs.getInt("employeeid");
+                    String name = rs.getString("name");
+                    String username = rs.getString("username");
+                    String password = rs.getString("password"); //possibly remove
+                    String email = rs.getString("email");
+                    String phonenumber = rs.getString("phonenumber");
+                    Employee e = new Employee(customerID, name, username, password, email, phonenumber);
+                    return e;
+                }else{
+                    return null;
+                }
+        } catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
+    
+    public Employee searchEmployeeID(Integer searchID){
+        String sql = "select * from employees where employeeid = ?";
+        
+        try (
+                Connection dbCon = JdbcConnection.getConnection(url);
+                PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+                stmt.setInt(1, searchID);
                 ResultSet rs = stmt.executeQuery();      
                 if(rs.next()) {                  
                     Integer customerID = rs.getInt("employeeid");
