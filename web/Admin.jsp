@@ -20,12 +20,17 @@
         </div>
         <div class="back">
             <div class="content" id="center">
-                <div class="button">
-                    <p id="button"><a href="CreateCustomerForm.jsp">Create Customer</a></p>
-                    <p id="button"><a href="ViewCustomers.jsp">View Customers</a></p>
-                    <p id="button"><a href="CreateEmployeeForm.jsp">Create Employee</a></p>
-                    <p id="button"><a href="CreateJobForm.jsp">New Job</a></p>
-                </div>
+                <table cellspacing="0">
+                    <tr>
+                        <td><p id="button"><a href="CreateCustomerForm.jsp">Create Customer</a></p></td>
+                        <td><p id="button"><a href="CreateEmployeeForm.jsp">Create Employee</a></p></td>
+                    </tr><tr>
+                        <td><p id="button"><a href="ViewCustomers.jsp">View Customers</a></p></td>
+                        <td><p id="button"><a href="ViewEmployees.jsp">View Employees</a></p></td>
+                    </tr><tr>
+                        <td><p id="button"><a href="CreateJobForm.jsp">New Job</a></p></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </body>
