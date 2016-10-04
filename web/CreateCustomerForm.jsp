@@ -22,20 +22,11 @@
             <div class="content">
                 <div class ="form">
                     <form action="CreateCustomer" method=POST">
-                        <label for="txtName">Full Name: </label> 
-                        <input id="txtName" name="Name" type="text">
-
-                        <label for="txtAddress">Address: </label> 
-                        <input id="txtAddress" name="Address" type="text">
-
-                        <label for="txtEmail">Email Address: </label> 
-                        <input id="txtEmail" name="Email" type="text">
-
-                        <label for="txtPhoneNumber">Phone Number: </label> 
-                        <input id="txtPhoneNumber" name="PhoneNumber" type="text">
-
-                        <label for="txtSectionSize">Section Size: </label> 
-                        <input id="txtSectionSize" name="SectionSize" type="text">
+                        <input name="Name" type="text" placeholder="Full Name">
+                        <input name="Address" type="text" placeholder="Address">
+                        <input name="Email" type="text" placeholder="Email">
+                        <input name="PhoneNumber" type="text" placeholder="Phone Number">
+                        <input name="SectionSize" type="text" placeholder="Section Size">
 
                         <button type="submit">Submit</button>
                     </form>

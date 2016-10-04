@@ -1,17 +1,53 @@
-<%-- 
-    Document   : CreateJobForm
-    Created on : 2/10/2016, 6:19:13 PM
-    Author     : Rory
---%>
+<%@page import="domain.Customer"%>
+<%@page import="dao.EmployeeDatabaseAccess"%>
+<%@page import="dao.CustomerDatabaseAccess"%>
+<%
+    CustomerDatabaseAccess cDAO = new CustomerDatabaseAccess();
+    EmployeeDatabaseAccess eDAO = new EmployeeDatabaseAccess();
+%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Create Job</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
+        <div class="back">
+            <div class="content">
+                <h1>Create Job</h1>
+            </div>
+        </div>
+        <div class="back">
+            <div class="content">
+                <div class ="form">
+                    <form action="CreateJob" method=POST">
+                        <p>
+                            <label for="Customer">Customer:</label>
+                            <select name="Customer">
+                                <% for (Customer cust : cDAO.getCustomers()) {%>
+                                <option value="<%= cust.getName()%>" ><%= cust.getName()%></option>
+                                <% } %>
+                            </select>
+                        </p><p>
+                            <label for="Employee">Employee:</label>
+                            <select name="Employee">
+                                <% for (Employee emp : eDAO.getEmployees()) {%>
+                                <option value="<%= emp.getName()%>" ><%= emp.getName()%></option>
+                                <% }%>
+                            </select>
+                        </p>
+                        <input name="Day" type="text" placeholder="Day">
+                        <input name="Rate" type="text" placeholder="Rate">
+                        <input name="Description" type="text" placeholder="Decription">
+                        <input name="Status" type="text" placeholder="Status">
+
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

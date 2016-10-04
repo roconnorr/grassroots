@@ -50,6 +50,7 @@ h2 {
     margin-top: 20px;
 }
 
+/*Table Stuff*/
 table {
     margin-top: 16px;
     margin-bottom: 16px;
@@ -76,20 +77,24 @@ table td, table th {
     padding-bottom: 0.7em;
 }
 
+/*Form Stuff*/
 .form {
     width: 300px;
     clear: both;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 30px;
     text-align: center;
 }
+
 
 .form input {
     width: 100%;
     clear: both;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
 }
 
+/*Button Stuff*/
 #button {
     margin-bottom: 20px;
 }
@@ -113,6 +118,7 @@ table td, table th {
     margin: 0.3em;
 }
 
+/*ids*/
 #left {
     text-align: left;
 }
