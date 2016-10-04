@@ -5,15 +5,8 @@
  */
 package web;
 
-import dao.JobDatabaseAccess;
-import domain.Job;
-import domain.Job.Frequency;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,11 +17,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Rory
  */
-@WebServlet(name = "CreateJob", urlPatterns = {"/CreateJob"})
-public class CreateJob extends HttpServlet {
+@WebServlet(name = "Edit", urlPatterns = {"/Edit"})
+public class Edit extends HttpServlet {
 
-    JobDatabaseAccess jda = new JobDatabaseAccess();
-        
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -38,20 +29,21 @@ public class CreateJob extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Double chargeRate = Double.parseDouble(request.getParameter("Rate")); //placeholder id, real id is assigned when saved to the db
-        int employeeID = Integer.parseInt(request.getParameter("Employee"));
-        int customerID = Integer.parseInt(request.getParameter("Customer"));
-        String date = request.getParameter("Day");
-        Frequency frequency = Frequency.valueOf(request.getParameter("Frequency"));
-        String description = request.getParameter("Description");
-        String status = request.getParameter("Status");
-        
-
-        Job j = new Job(chargeRate, employeeID, customerID, date, frequency, description, status);
-        
-        jda.saveJob(j);
-        response.sendRedirect("index.jsp");
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Edit</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet Edit at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

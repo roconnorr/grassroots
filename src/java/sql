@@ -60,7 +60,7 @@ CREATE TABLE jobs
   chargerate       DOUBLE unsigned NOT NULL,
   employeeid       INT unsigned NOT NULL,       
   customerid       INT unsigned NOT NULL,            
-  date             TIMESTAMP    NOT NULL,                   
+  date             VARCHAR(150) NOT NULL,                   
   frequency        VARCHAR(150) NOT NULL,               
   description      VARCHAR(150) NOT NULL,   
   status           VARCHAR(150) NOT NULL,              

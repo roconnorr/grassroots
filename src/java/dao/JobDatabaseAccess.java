@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import domain.Customer;
 import domain.Job;
 import domain.Job.Frequency;
 import java.sql.Timestamp;
@@ -35,8 +34,7 @@ public class JobDatabaseAccess {
     }
 
     public void saveJob(Job j) {
-        String sql = "merge into jobs (chargerate, employeeid, customerid, date, frequency, description, status) values (?,?,?,?,?,?,?)";
-        Timestamp timestamp = new Timestamp(j.getDate().getTime());
+        String sql = "insert into jobs (chargerate, employeeid, customerid, date, frequency, description, status) values (?,?,?,?,?,?,?)";
         
         try (   
                 Connection dbCon = JdbcConnection.getConnection(url);
@@ -45,7 +43,7 @@ public class JobDatabaseAccess {
                 stmt.setDouble(1, j.getChargeRate());
                 stmt.setInt(2, j.getEmployeeID());
                 stmt.setInt(3, j.getCustomerID());
-                stmt.setTimestamp(4, timestamp);
+                stmt.setString(4, j.getDate());
                 stmt.setString(5, j.getFrequency().toString());
                 stmt.setString(6, j.getDescription());
                 stmt.setString(7, j.getStatus());
@@ -70,7 +68,7 @@ public class JobDatabaseAccess {
                     double chargerate = rs.getDouble("chargerate");
                     Integer employeeID = rs.getInt("employeeid");
                     Integer customerID = rs.getInt("customerid");
-                    Date date = rs.getDate("date");
+                    String date = rs.getString("date");
                     Frequency frequency = Frequency.valueOf(rs.getString("frequency"));
                     String description = rs.getString("description");
                     String status = rs.getString("status");

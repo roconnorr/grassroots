@@ -12,12 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import domain.Customer;
 import domain.Employee;
-import domain.Job;
-import domain.Job.Frequency;
-import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  *

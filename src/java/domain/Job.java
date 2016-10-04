@@ -15,13 +15,13 @@ public class Job {
     private Double chargeRate;
     private Integer employeeID;
     private Integer customerID;
-    private Date date;
+    private String date;
     public enum Frequency {WEEKLY, FORTNIGHTLY, MONTHLY};
     private Frequency frequency;
     private String description;
     private String status; //make enum?
 
-    public Job(Double chargeRate, Integer employeeID, Integer customerID, Date date, Frequency frequency, String description, String status) {
+    public Job(Double chargeRate, Integer employeeID, Integer customerID, String date, Frequency frequency, String description, String status) {
         this.chargeRate = chargeRate;
         this.employeeID = employeeID;
         this.customerID = customerID;
@@ -56,11 +56,11 @@ public class Job {
         this.customerID = customerID;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
