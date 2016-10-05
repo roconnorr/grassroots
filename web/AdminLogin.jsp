@@ -28,7 +28,6 @@
                         <label for="txtName">Password: </label> 
                         <input id="txtPassword" name="Password" type="password">
                         <button type="submit" class="button">Login</button> 
-                        <p id="button"><a href="CreateAccountForm.jsp">Create Account</a></p>
                     </form> 
                 </div>
             </div>

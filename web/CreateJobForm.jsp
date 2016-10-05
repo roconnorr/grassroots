@@ -33,9 +33,9 @@
         <div class="back">
             <div class="content">
                 <div class ="form">
-                    <form action="CreateJob" method=POST">
-                        <!--Editing-->
-                        <% if (request.getParameter("id") != null) { %>
+                    <!--Editing-->
+                    <% if (request.getParameter("id") != null) { %>
+                    <form action="EditJob" method=POST">
                         <p><label for="Customer">Customer:</label><br>
                             <select name="Customer">
                                 <% for (Customer cust : cDAO.getCustomers()) {
@@ -51,7 +51,7 @@
                         <p><label for="Employee">Employee:</label><br>
                             <select name="Employee">
                                 <% for (Employee emp : eDAO.getEmployees()) {
-                                        if (emp.getEmployeeID()== job.getEmployeeID()) {%>
+                                        if (emp.getEmployeeID() == job.getEmployeeID()) {%>
                                 <option value="<%= emp.getEmployeeID()%>" selected="selected"><%= emp.getName()%></option>
                                 <% } else {%>
                                 <option value="<%= emp.getEmployeeID()%>"><%= emp.getName()%></option>
@@ -62,28 +62,31 @@
                             </select></p>
                         <p><label for="Frequency">Frequency</label><br>
                             <select name="Frequency">
-                                <% if(job.getFrequency() == Frequency.Weekly) { %>
+                                <% if (job.getFrequency() == Frequency.Weekly) { %>
                                 <option value="Weekly" selected="selected">Weekly</option>
                                 <option value="Fortnightly">Fortnightly</option>
                                 <option value="Monthly">Monthly</option>
-                                <% } else if(job.getFrequency() == Frequency.Fortnightly) { %>
+                                <% } else if (job.getFrequency() == Frequency.Fortnightly) { %>
                                 <option value="Weekly">Weekly</option>
                                 <option value="Fortnightly" selected="selected">Fortnightly</option>
                                 <option value="Monthly">Monthly</option>
-                                <% } else if(job.getFrequency() == Frequency.Monthly) { %>
+                                <% } else if (job.getFrequency() == Frequency.Monthly) { %>
                                 <option value="Weekly">Weekly</option>
                                 <option value="Fortnightly">Fortnightly</option>
                                 <option value="Monthly" selected="selected">Monthly</option>
-                                <% } %>
+                                <% }%>
                             </select></p>
                         <input name="Day" type="text" placeholder="Day" value="<%=job.getDate()%>">
                         <input name="Rate" type="text" placeholder="Rate" value="<%=job.getChargeRate()%>">
                         <input name="Description" type="text" placeholder="Decription" value="<%=job.getDescription()%>">
                         <input name="Status" type="text" placeholder="Status" value="<%=job.getStatus()%>">
-                        
-                        
-                        <!--Not Editing-->
-                        <% } else { %>
+                        <button type="submit">Update</button>
+                    </form>
+
+
+                    <!--Not Editing-->
+                    <% } else { %>
+                    <form action="CreateJob" method=POST">
                         <p><label for="Customer">Customer:</label><br>
                             <select name="Customer">
                                 <% for (Customer cust : cDAO.getCustomers()) {%>
@@ -106,8 +109,8 @@
                         <input name="Rate" type="text" placeholder="Rate">
                         <input name="Description" type="text" placeholder="Decription">
                         <input name="Status" type="text" placeholder="Status">
+                        <button type="submit">Create</button>
                         <% }%>
-                        <button type="submit">Submit</button>
                     </form>
                 </div>
             </div>

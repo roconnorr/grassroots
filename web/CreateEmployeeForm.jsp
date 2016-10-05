@@ -26,20 +26,23 @@
         <div class="back">
             <div class="content">
                 <div class ="form">
-                    <form action="CreateEmployee" method=POST">
-                        <% if (request.getParameter("id") != null) { %>
+                    <% if (request.getParameter("id") != null) {%>
+                    <form action="EditEmployee" method=POST">
                         <input name="Name" type="text" placeholder="Full Name" value="<%=emp.getName()%>">
                         <input name="Email" type="text" placeholder="Email" value="<%=emp.getEmail()%>">
                         <input name="PhoneNumber" type="text" placeholder="Phone Number" value="<%=emp.getPhoneNumber()%>">
-                        <% } else { %>
+                        <button type="submit">Update</button>
+                    </form>
+                    <% } else { %>
+                    <form action="CreateEmployee" method=POST">
                         <input name="Name" type="text" placeholder="Full Name">
                         <input name="Username" type="text" placeholder="Username">
                         <input name="Password" type="password" placeholder="Password">
                         <input name="Email" type="text" placeholder="Email">
                         <input name="PhoneNumber" type="text" placeholder="Phone Number">
-                        <% }%>
-                        <button type="submit">Submit</button>
+                        <button type="submit">Create</button>
                     </form>
+                    <% }%>
                 </div>
             </div>
         </div>

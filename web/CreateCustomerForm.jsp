@@ -26,21 +26,24 @@
         <div class="back">
             <div class="content">
                 <div class ="form">
-                    <form action="CreateCustomer" method=POST">
-                        <% if (request.getParameter("id") != null) { %>
+                    <% if (request.getParameter("id") != null) {%>
+                    <form action="EditCustomer" method=POST">
                         <input name="Name" type="text" placeholder="Full Name" value="<%=customer.getName()%>">
                         <input name="Address" type="text" placeholder="Address" value="<%=customer.getAddress()%>">
                         <input name="Email" type="text" placeholder="Email" value="<%=customer.getEmail()%>">
                         <input name="PhoneNumber" type="text" placeholder="Phone Number" value="<%=customer.getPhoneNumber()%>">
                         <input name="SectionSize" type="text" placeholder="Section Size" value="<%=customer.getSectionSize()%>">
-                        <% } else { %>
+                        <button type="submit">Update</button>
+                    </form>
+                    <% } else { %>
+                    <form action="CreateCustomer" method=POST">
                         <input name="Name" type="text" placeholder="Full Name">
                         <input name="Address" type="text" placeholder="Address">
                         <input name="Email" type="text" placeholder="Email">
                         <input name="PhoneNumber" type="text" placeholder="Phone Number">
                         <input name="SectionSize" type="text" placeholder="Section Size">
+                        <button type="submit">Create</button>
                         <% }%>
-                        <button type="submit">Submit</button>
                     </form>
                 </div>
             </div>
