@@ -12,6 +12,7 @@ import java.util.Date;
  * @author Rory
  */
 public class Job {
+    private Integer jobID;
     private Double chargeRate;
     private Integer employeeID;
     private Integer customerID;
@@ -21,7 +22,8 @@ public class Job {
     private String description;
     private String status; //make enum?
 
-    public Job(Double chargeRate, Integer employeeID, Integer customerID, String date, Frequency frequency, String description, String status) {
+    public Job(Integer jobID, Double chargeRate, Integer employeeID, Integer customerID, String date, Frequency frequency, String description, String status) {
+        this.jobID =  jobID;
         this.chargeRate = chargeRate;
         this.employeeID = employeeID;
         this.customerID = customerID;
@@ -31,6 +33,15 @@ public class Job {
         this.status = status;
     }
 
+    public Integer getJobID() {
+        return jobID;
+    }
+
+    public void setJobID(Integer jobID) {
+        this.jobID = jobID;
+    }
+
+    
     
     public Double getChargeRate() {
         return chargeRate;

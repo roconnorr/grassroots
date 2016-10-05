@@ -23,8 +23,6 @@ public class PasswordHash {
     public Boolean login(String username, String password) {
         Boolean isAuthenticated;
 
-        // remember to use the same SALT value use used while storing password
-        // for the first time.
         String saltedPassword = SALT + password;
         String hashedPassword = generateHash(saltedPassword);
 
@@ -41,12 +39,10 @@ public class PasswordHash {
     public Boolean adminLogin(String username, String password) {
         Boolean isAuthenticated;
 
-        // remember to use the same SALT value use used while storing password
-        // for the first time.
         String saltedPassword = SALT + password;
         String hashedPassword = generateHash(saltedPassword);
 
-        String storedPasswordHash = eda.getPasswordHash(username);
+        String storedPasswordHash = ada.getAdminPasswordHash(username);
         if (hashedPassword.equals(storedPasswordHash)) {
             isAuthenticated = true;
         } else {

@@ -35,8 +35,8 @@ public class CreateAdmin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         //manually enter details to make admins
-        String userName = "";
-        String password = "";
+        String userName = "test";
+        String password = "test";
         
         String saltedPassword = pHash.SALT + password;
         String hashedPassword = pHash.generateHash(saltedPassword);

@@ -65,6 +65,7 @@ public class JobDatabaseAccess {
                 
                 
                 while (rs.next()) {
+                    Integer jobID = rs.getInt("jobid");
                     double chargerate = rs.getDouble("chargerate");
                     Integer employeeID = rs.getInt("employeeid");
                     Integer customerID = rs.getInt("customerid");
@@ -72,11 +73,25 @@ public class JobDatabaseAccess {
                     Frequency frequency = Frequency.valueOf(rs.getString("frequency"));
                     String description = rs.getString("description");
                     String status = rs.getString("status");
-                    Job j = new Job(chargerate, employeeID, customerID, date, frequency, description, status);
+                    Job j = new Job(jobID, chargerate, employeeID, customerID, date, frequency, description, status);
                     jobs.add(j);
                 }
                 return jobs;
         } catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
+    
+    public void deleteJob(Job j) {
+        String sql = "delete from jobs where employeeid = ? and customerid = ?";
+        try (
+                Connection dbCon = JdbcConnection.getConnection(url);
+                PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+                stmt.setInt(1, j.getEmployeeID());
+                stmt.setInt(2, j.getCustomerID());
+                stmt.executeUpdate();
+        }catch (SQLException ex) {
             throw new DAOException(ex.getMessage(), ex);
         }
     }

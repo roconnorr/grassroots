@@ -39,6 +39,7 @@ public class CreateJob extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Integer jobID = -1; //temp variable
         Double chargeRate = Double.parseDouble(request.getParameter("Rate")); //placeholder id, real id is assigned when saved to the db
         int employeeID = Integer.parseInt(request.getParameter("Employee"));
         int customerID = Integer.parseInt(request.getParameter("Customer"));
@@ -48,7 +49,7 @@ public class CreateJob extends HttpServlet {
         String status = request.getParameter("Status");
         
 
-        Job j = new Job(chargeRate, employeeID, customerID, date, frequency, description, status);
+        Job j = new Job(jobID, chargeRate, employeeID, customerID, date, frequency, description, status);
         
         jda.saveJob(j);
         response.sendRedirect("index.jsp");
