@@ -126,13 +126,13 @@ public class CustomerDatabaseAccess {
     }
 
     
-    public void deleteCustomer(Customer c) {
+    public void deleteCustomer(Integer id) {
         String sql = "delete from customers where uid = ?";
         try (
                 Connection dbCon = JdbcConnection.getConnection(url);
                 PreparedStatement stmt = dbCon.prepareStatement(sql);
         ) {
-                stmt.setInt(1, c.getCustomerID());
+                stmt.setInt(1, id);
                 stmt.executeUpdate();
         }catch (SQLException ex) {
             throw new DAOException(ex.getMessage(), ex);

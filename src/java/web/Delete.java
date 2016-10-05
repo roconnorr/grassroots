@@ -5,6 +5,12 @@
  */
 package web;
 
+import dao.CustomerDatabaseAccess;
+import dao.EmployeeDatabaseAccess;
+import dao.JobDatabaseAccess;
+import domain.Customer;
+import domain.Employee;
+import domain.Job;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -30,8 +36,22 @@ public class Delete extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //pass id and object type
-        //handle each different case
+        int type = Integer.parseInt(request.getParameter("type"));
+        int id = Integer.parseInt(request.getParameter("toDelete"));
+
+        if (type == 1) {
+            CustomerDatabaseAccess cda = new CustomerDatabaseAccess();
+            cda.deleteCustomer(id);
+            response.sendRedirect("ViewCustomers.jsp");
+        } else if (type == 2) {
+            EmployeeDatabaseAccess dao = new EmployeeDatabaseAccess();
+            dao.deleteEmployee(id);
+            response.sendRedirect("ViewEmployees.jsp");
+        } else if (type == 3) {
+            JobDatabaseAccess dao = new JobDatabaseAccess();
+            dao.deleteJob(id);
+            response.sendRedirect("ViewJobs.jsp");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
