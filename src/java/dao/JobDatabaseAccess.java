@@ -65,6 +65,7 @@ public class JobDatabaseAccess {
                 
                 
                 while (rs.next()) {
+                    Integer jobID = rs.getInt("jobid");
                     double chargerate = rs.getDouble("chargerate");
                     Integer employeeID = rs.getInt("employeeid");
                     Integer customerID = rs.getInt("customerid");
@@ -72,7 +73,7 @@ public class JobDatabaseAccess {
                     Frequency frequency = Frequency.valueOf(rs.getString("frequency"));
                     String description = rs.getString("description");
                     String status = rs.getString("status");
-                    Job j = new Job(chargerate, employeeID, customerID, date, frequency, description, status);
+                    Job j = new Job(jobID, chargerate, employeeID, customerID, date, frequency, description, status);
                     jobs.add(j);
                 }
                 return jobs;
