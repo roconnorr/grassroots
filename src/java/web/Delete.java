@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -36,20 +37,19 @@ public class Delete extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int type = Integer.parseInt(request.getParameter("type"));
-        int id = Integer.parseInt(request.getParameter("toDelete"));
-
-        if (type == 1) {
-            CustomerDatabaseAccess cda = new CustomerDatabaseAccess();
-            cda.deleteCustomer(id);
+        HttpSession session = request.getSession();
+        Object toDelete = session.getAttribute("toDelete");
+        if(toDelete instanceof Customer) {
+            CustomerDatabaseAccess dao = new CustomerDatabaseAccess();
+            dao.deleteCustomer(((Customer) toDelete).getCustomerID());
             response.sendRedirect("ViewCustomers.jsp");
-        } else if (type == 2) {
+        } else if(toDelete instanceof Employee) {
             EmployeeDatabaseAccess dao = new EmployeeDatabaseAccess();
-            dao.deleteEmployee(id);
+            dao.deleteEmployee(((Employee) toDelete).getEmployeeID());
             response.sendRedirect("ViewEmployees.jsp");
-        } else if (type == 3) {
+        } else if(toDelete instanceof Job) {
             JobDatabaseAccess dao = new JobDatabaseAccess();
-            dao.deleteJob(id);
+            dao.deleteJob(((Job) toDelete).getJobID());
             response.sendRedirect("ViewJobs.jsp");
         }
     }

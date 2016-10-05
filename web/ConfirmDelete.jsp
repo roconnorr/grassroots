@@ -3,6 +3,7 @@
 <%@page import="dao.EmployeeDatabaseAccess"%>
 <%@page import="domain.Customer"%>
 <%@page import="dao.CustomerDatabaseAccess"%>
+
 <%
     int type = Integer.parseInt(request.getParameter("type"));
     if (type == 1) {
@@ -40,7 +41,7 @@
         <div class="back">
             <div class="content" id="center">
                 <p id="button">
-                    <a href="">Confirm</a>
+                    <a href="/grassroots/Delete">Confirm</a>
                     <a href="javascript:history.back()">Back</a>
                 </p>
             </div>
