@@ -34,7 +34,6 @@
                         <th width="300" id="left">Email</th>
                         <th width="100" id="left">Section Size</th>
                         <th width="50">Edit</th>
-                        <th width="50">Delete</th>
                     </tr>
                     <% for (Customer customer : dao.getCustomers()) { %>
                     <tr>
@@ -44,7 +43,6 @@
                         <td><%= customer.getEmail()%></td>
                         <td><%= customer.getSectionSize()%></td>
                         <td id="button"><a href="CreateCustomerForm.jsp?id=<%=customer.getCustomerID()%>">Edit</a></td>
-                        <td id="button"><a href="ConfirmDelete.jsp?type=1&id=<%=customer.getCustomerID()%>">Delete</a></td>
                     </tr>
                     <% } %>
                 </table>

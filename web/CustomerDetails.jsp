@@ -40,7 +40,6 @@
                 </p>
                 <p id="button">
                     <a href="CreateCustomerForm.jsp?id=<%=customer.getCustomerID()%>">Edit</a>
-                    <a href="ConfirmDelete.jsp?type=1&id=<%=customer.getCustomerID()%>">Delete</a>
                 </p>
             </div>
         </div>

@@ -33,7 +33,6 @@
                         <th width="300" id="left">Email</th>
                         <th width="150" id="left">Ph Number</th>
                         <th width="50">Edit</th>
-                        <th width="50">Delete</th>
                     </tr>
                     <% for (Employee emp : dao.getEmployees()) { %>
                     <tr>
@@ -42,7 +41,6 @@
                         <td><%= emp.getEmail()%></td>
                         <td><%= emp.getPhoneNumber()%></td>
                         <td id="button"><a href="CreateEmployeeForm.jsp?id=<%=emp.getEmployeeID()%>">Edit</a></td>
-                        <td id="button"><a href="ConfirmDelete.jsp?type=2&id=<%=emp.getEmployeeID()%>">Delete</a></td>
                     </tr>
                     <% } %>
                 </table>
