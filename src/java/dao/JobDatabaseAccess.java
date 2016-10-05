@@ -111,13 +111,13 @@ public class JobDatabaseAccess {
         }
     }
     
-    public void deleteJob(Job j) {
+    public void deleteJob(Integer jobid) {
         String sql = "delete from jobs where jobid = ?";
         try (
                 Connection dbCon = JdbcConnection.getConnection(url);
                 PreparedStatement stmt = dbCon.prepareStatement(sql);
         ) {
-                stmt.setInt(1, j.getJobID());
+                stmt.setInt(1, jobid);
                 stmt.executeUpdate();
         }catch (SQLException ex) {
             throw new DAOException(ex.getMessage(), ex);
