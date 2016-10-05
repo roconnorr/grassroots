@@ -51,7 +51,7 @@
                         <td><%= job.getFrequency()%></td>
                         <td><%= job.getDescription()%></td>
                         <td><%= job.getStatus()%></td>
-                        <td id="button"><a href="">Edit</a></td>
+                        <td id="button"><a href="CreateJobForm.jsp?id=<%=job.getJobID()%>">Edit</a></td>
                         <td id="button"><a href="ConfirmDelete.jsp?type=3&id=<%=job.getJobID()%>">Delete</a></td>
                     </tr>
                     <% } %>
