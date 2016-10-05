@@ -5,6 +5,7 @@
  */
 package dao;
 
+import domain.Employee;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -82,38 +83,26 @@ public class JobDatabaseAccess {
         }
     }
     
-    public void deleteJob(Job j) {
-        String sql = "delete from jobs where employeeid = ? and customerid = ?";
+    public Job searchJobID(Integer searchID){
+        String sql = "select * from jobs where jobid = ?";
+        
         try (
                 Connection dbCon = JdbcConnection.getConnection(url);
                 PreparedStatement stmt = dbCon.prepareStatement(sql);
         ) {
-                stmt.setInt(1, j.getEmployeeID());
-                stmt.setInt(2, j.getCustomerID());
-                stmt.executeUpdate();
-        }catch (SQLException ex) {
-            throw new DAOException(ex.getMessage(), ex);
-        }
-    }
-
-    /*
-    public Customer searchCustomerName(String searchName) {
-        String sql = "select * from customers where name = ?";
-        try (
-                Connection dbCon = JdbcConnection.getConnection(url);
-                PreparedStatement stmt = dbCon.prepareStatement(sql);
-        ) {
-                stmt.setString(1, searchName);
+                stmt.setInt(1, searchID);
                 ResultSet rs = stmt.executeQuery();      
                 if(rs.next()) {                  
-                    Integer customerID = rs.getInt("uid");
-                    String name = rs.getString("name");
-                    String address = rs.getString("address");
-                    String email = rs.getString("email");
-                    String phoneNumber = rs.getString("phonenumber");
-                    String sectionSize = rs.getString("sectionsize");
-                    Customer c = new Customer(customerID, name, address, email, phoneNumber, sectionSize);
-                    return c;
+                    Integer jobID = rs.getInt("jobid");
+                    double chargerate = rs.getDouble("chargerate");
+                    Integer employeeID = rs.getInt("employeeid");
+                    Integer customerID = rs.getInt("customerid");
+                    String date = rs.getString("date");
+                    Frequency frequency = Frequency.valueOf(rs.getString("frequency"));
+                    String description = rs.getString("description");
+                    String status = rs.getString("status");
+                    Job j = new Job(jobID, chargerate, employeeID, customerID, date, frequency, description, status);
+                    return j;
                 }else{
                     return null;
                 }
@@ -122,22 +111,17 @@ public class JobDatabaseAccess {
         }
     }
     
-    
-
-    
-    public void deleteCustomer(Customer c) {
-        String sql = "delete from customers where uid = ?";
+    public void deleteJob(Job j) {
+        String sql = "delete from jobs where jobid = ?";
         try (
                 Connection dbCon = JdbcConnection.getConnection(url);
                 PreparedStatement stmt = dbCon.prepareStatement(sql);
         ) {
-                stmt.setInt(1, c.getCustomerID());
+                stmt.setInt(1, j.getJobID());
                 stmt.executeUpdate();
         }catch (SQLException ex) {
             throw new DAOException(ex.getMessage(), ex);
         }
     }
-    
-    //edit customer method
-*/
+
 }
