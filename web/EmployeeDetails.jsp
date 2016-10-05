@@ -36,7 +36,7 @@
                 <%= emp.getPhoneNumber()%>
                 </p>
                 <p id="button">
-                    <a href="CreateCustomerForm.jsp?id=<%=customer.getCustomerID()%>">Edit</a>
+                    <a href="CreateEmployeeForm.jsp?id=<%=emp.getEmployeeID()%>">Edit</a>
                     <a href="">Delete</a>
                 </p>
             </div>

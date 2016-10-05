@@ -39,7 +39,7 @@
                     <%= customer.getSectionSize()%>
                 </p>
                 <p id="button">
-                    <a href="CreateEmployeeForm.jsp?id=<%=employee.getEmployeeID()%>">Edit</a>
+                    <a href="CreateCustomerForm.jsp?id=<%=customer.getCustomerID()%>">Edit</a>
                     <a href="">Delete</a>
                 </p>
             </div>
