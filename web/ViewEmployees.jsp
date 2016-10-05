@@ -42,7 +42,7 @@
                         <td><%= emp.getEmail()%></td>
                         <td><%= emp.getPhoneNumber()%></td>
                         <td id="button"><a href="CreateEmployeeForm.jsp?id=<%=emp.getEmployeeID()%>">Edit</a></td>
-                        <td id="button"><a href="">Delete</a></td>
+                        <td id="button"><a href="ConfirmDelete.jsp?type=2&id=<%=emp.getEmployeeID()%>">Delete</a></td>
                     </tr>
                     <% } %>
                 </table>

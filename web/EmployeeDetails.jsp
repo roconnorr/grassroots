@@ -37,7 +37,7 @@
                 </p>
                 <p id="button">
                     <a href="CreateEmployeeForm.jsp?id=<%=emp.getEmployeeID()%>">Edit</a>
-                    <a href="">Delete</a>
+                    <a href="ConfirmDelete.jsp?type=2&id=<%=emp.getEmployeeID()%>">Delete</a>
                 </p>
             </div>
         </div>

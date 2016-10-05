@@ -52,7 +52,7 @@
                         <td><%= job.getDescription()%></td>
                         <td><%= job.getStatus()%></td>
                         <td id="button"><a href="">Edit</a></td>
-                        <td id="button"><a href="">Delete</a></td>
+                        <td id="button"><a href="ConfirmDelete.jsp?type=3&id=<%=job.getJobID()%>">Delete</a></td>
                     </tr>
                     <% } %>
                 </table>
