@@ -17,7 +17,7 @@
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
         <div class="back">
             <div class="content">
-                <h1>Customerasdf</h1>
+                <h1>Customer</h1>
             </div>
         </div>
         <div class="back">
