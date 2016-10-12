@@ -40,11 +40,7 @@
                     <a href="">Change Password</a>
                 </div>
                 <h2>Welcome <%= employee.getName()%></h2>
-                <p>This will eventually be a message from soul but for now I'm just writing in random shit so that I can test that the
-                    page formats correctly haha lmao xd words words words I like writing words. I love memes but only ironically
-                    sadf asdf fdsa. Somebody once told me the world is gonna roll me, I ain't the sharpest tool in the shed.
-                    She was looking kind of dumb with her finger and her thumb in the shape of an L on her forehead.
-                </p>
+                <p><%=employee.getMessage()%></p>
                 <h2>Jobs:</h2>
                 <table cellspacing="0">
                     <tr>

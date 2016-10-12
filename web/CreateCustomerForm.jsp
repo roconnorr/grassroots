@@ -27,7 +27,11 @@
         <% } else { %>
         <div class="back">
             <div class="content">
+                <% if (request.getParameter("id") != null) {%>
+                <h1>Update Customer</h1>
+                <% } else { %>
                 <h1>Create Customer</h1>
+                <% } %>
             </div>
         </div>
         <div class="back">
