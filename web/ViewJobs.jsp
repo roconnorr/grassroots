@@ -49,9 +49,9 @@
             <div class="content">
                 <div id="right">
                     <% if (request.getParameter("filter") != null) { %>
-                    <p id="button"><a href="?filter=1">Hide Completed</a></p>
+                    <p id="button"><a href="ViewJobs.jsp">Hide Completed</a></p>
                     <% } else { %>
-                    <p id="button"><a href="ViewJobs.jsp">Show Completed</a></p>
+                    <p id="button"><a href="?filter=1">Show Completed</a></p>
                     <% } %>
                 </div>
                 <table cellspacing="0">

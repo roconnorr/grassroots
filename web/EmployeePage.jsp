@@ -57,7 +57,7 @@
                     <tr>
                         <td><a href="CustomerDetails.jsp?id=<%=job.getCustomerID()%>"><%= cDAO.searchCustomerID(job.getCustomerID()).getName()%></a></td>
                         <td id="money"><%= job.getChargeRate()%></td>
-                        <td><%= job.getDate()%></td>
+                        <td><%= job.getDateTime()%></td>
                         <td><%= job.getDescription()%></td>
                         <td id="button"><a href="/grassroots/MarkJobComplete?id=<%=job.getJobID()%>&status=<%=job.getStatus()%>&source=2">Mark Complete</a></td>
                     </tr>

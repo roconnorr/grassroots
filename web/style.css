@@ -82,7 +82,7 @@ table {
     margin-bottom: 16px;
     margin-left: auto;
     margin-right: auto;
-    border: solid 2px #406e0f;
+    border: solid 3px #406e0f;
     border-radius: 5px;
 }
 
@@ -102,6 +102,10 @@ table th {
 table td, table th {
     padding-top: 0.7em;
     padding-bottom: 0.7em;
+}
+
+a {
+    color: #406e0f
 }
 
 /*Form Stuff*/
