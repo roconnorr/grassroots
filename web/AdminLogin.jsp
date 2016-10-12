@@ -24,7 +24,6 @@
                     <form action="AdminLogin" method=POST">
                         <label for="txtUsername">Username: </label> 
                         <input id="txtUsername" name="Username" type="text">
-
                         <label for="txtName">Password: </label> 
                         <input id="txtPassword" name="Password" type="password">
                         <button type="submit" class="button">Login</button> 

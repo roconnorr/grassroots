@@ -79,7 +79,6 @@
                         <input name="Day" type="text" placeholder="Day" value="<%=job.getDate()%>">
                         <input name="Rate" type="text" placeholder="Rate" value="<%=job.getChargeRate()%>">
                         <input name="Description" type="text" placeholder="Decription" value="<%=job.getDescription()%>">
-                        <input name="Status" type="text" placeholder="Status" value="<%=job.getStatus()%>">
                         <button type="submit">Update</button>
                     </form>
 
@@ -104,11 +103,11 @@
                                 <option value="Weekly" >Weekly</option>
                                 <option value="Fortnightly" >Fortnightly</option>
                                 <option value="Monthly" >Monthly</option>
-                            </select></p>
+                            </select>
+                        </p>
                         <input name="Day" type="text" placeholder="Day">
                         <input name="Rate" type="text" placeholder="Rate">
                         <input name="Description" type="text" placeholder="Decription">
-                        <input name="Status" type="text" placeholder="Status">
                         <button type="submit">Create</button>
                         <% }%>
                     </form>

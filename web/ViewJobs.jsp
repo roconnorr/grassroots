@@ -23,6 +23,14 @@
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
+        <% if(session.getAttribute("admin") == null) {%>
+        <div class="back">
+            <div class="content" id="button">
+                <p id="center">You do not have access to this page</p>
+            </div>
+        </div>    
+        
+        <% } else { %>
         <div class="back">
             <div class="content">
                 <h1>Job Details</h1>
@@ -50,7 +58,7 @@
                         <td><%= job.getDate()%></td>
                         <td><%= job.getFrequency()%></td>
                         <td><%= job.getDescription()%></td>
-                        <td><%= job.getStatus()%></td>
+                        <td id="button"><a href="/grassroots/MarkJobComplete?id=<%=job.getJobID()%>&status=<%=job.getStatus()%>"><%= job.getStatus()%></a></td>
                         <td id="button"><a href="CreateJobForm.jsp?id=<%=job.getJobID()%>">Edit</a></td>
                         <td id="button"><a href="ConfirmDelete.jsp?type=3&id=<%=job.getJobID()%>">Delete</a></td>
                     </tr>
@@ -58,5 +66,6 @@
                 </table>
             </div>
         </div>
+        <% } %>
     </body>
 </html>
