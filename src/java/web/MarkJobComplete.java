@@ -42,26 +42,27 @@ public class MarkJobComplete extends HttpServlet {
         int jobID = -1; //placeholder
         int source = Integer.parseInt(request.getParameter("source"));
         Job j = jda.searchJobID(id);
+        System.out.println("j" + j.getDateTime());
         Status status = Status.valueOf(request.getParameter("status"));
         Status newStatus;
         if(status == Status.Incomplete){
             newStatus = Status.Complete;
             //this means the job was marked complete, and a new one with date plus the frequency should be created
-            Job newjob = new Job(jobID, j.getChargeRate(), j.getEmployeeID(), j.getCustomerID(), j.getDate(), j.getFrequency(), j.getDescription(), Status.Incomplete);
+            Job newjob = new Job(jobID, j.getChargeRate(), j.getEmployeeID(), j.getCustomerID(), j.getDateTime(), j.getFrequency(), j.getDescription(), Status.Incomplete);
             if(j.getFrequency() == Frequency.Weekly){
-                newjob.setDate(newjob.getDate().plusWeeks(1));
+                newjob.setDateTime(newjob.getDateTime().plusWeeks(1));
                 jda.saveJob(newjob);
             }else if(j.getFrequency() == Frequency.Fortnightly){
-                newjob.setDate(newjob.getDate().plusWeeks(2));
+                newjob.setDateTime(newjob.getDateTime().plusWeeks(2));
                 jda.saveJob(newjob);
             }else if(j.getFrequency() == Frequency.Monthly){
-                newjob.setDate(newjob.getDate().plusMonths(1));
+                newjob.setDateTime(newjob.getDateTime().plusMonths(1));
                 jda.saveJob(newjob);
             }
         }else{
             newStatus = Status.Incomplete;
         }
-        jda.markJob(id, newStatus);
+        jda.markJob(id, newStatus, j.getDateTime());
         if(source == 1){
             response.sendRedirect("ViewJobs.jsp");
         }else{
