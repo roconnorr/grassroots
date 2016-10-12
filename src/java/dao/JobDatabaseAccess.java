@@ -36,7 +36,8 @@ public class JobDatabaseAccess {
 
     public void saveJob(Job j) {
         String sql = "insert into jobs (chargerate, employeeid, customerid, date, frequency, description, status) values (?,?,?,?,?,?,?)";
-        Timestamp timestamp = Timestamp.valueOf(j.getDate());
+        
+        Timestamp timestamp = Timestamp.valueOf(j.getDateTime());
         
         try (   
                 Connection dbCon = JdbcConnection.getConnection(url);
@@ -140,13 +141,15 @@ public class JobDatabaseAccess {
         }
     }
     
-    public void markJob(Integer jobID, Status status){
-        String sql = "update jobs set status = ? where jobid = ?";
+    public void markJob(Integer jobID, Status status, LocalDateTime date){
+        String sql = "update jobs set status = ?, date = date where jobid = ?";
+        Timestamp timestamp = Timestamp.valueOf(date);
         try (
                 Connection dbCon = JdbcConnection.getConnection(url);
                 PreparedStatement stmt = dbCon.prepareStatement(sql);
         ) {
                 stmt.setString(1, status.toString());
+                //stmt.setTimestamp(2, timestamp);
                 stmt.setInt(2, jobID);
                 stmt.executeUpdate();
         }catch (SQLException ex) {
@@ -169,7 +172,7 @@ public class JobDatabaseAccess {
     
     public void updateJob(Job j) {
         String sql = "update jobs set chargerate = ?, employeeid = ?, customerid = ?, date = ?, frequency = ?, description = ?, status = ? where jobid = ?";
-        Timestamp timestamp = Timestamp.valueOf(j.getDate());
+        Timestamp timestamp = Timestamp.valueOf(j.getDateTime());
         
         try (   
                 Connection dbCon = JdbcConnection.getConnection(url);
