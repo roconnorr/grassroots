@@ -43,6 +43,7 @@
                     <!--Editing-->
                     <% if (request.getParameter("id") != null) { %>
                     <form action="EditJob" method=POST">
+                        <input name="id" type="hidden" value="<%=job.getJobID()%>">
                         <p><label for="Customer">Customer:</label><br>
                             <select name="Customer">
                                 <% for (Customer cust : cDAO.getCustomers()) {

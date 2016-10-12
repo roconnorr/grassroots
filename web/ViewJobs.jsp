@@ -4,6 +4,7 @@
     Author     : Rory
 --%>
 
+<%@page import="java.util.Collection"%>
 <%@page import="dao.CustomerDatabaseAccess"%>
 <%@page import="dao.EmployeeDatabaseAccess"%>
 <%@page import="domain.Job"%>
@@ -12,6 +13,12 @@
     JobDatabaseAccess jDAO = new JobDatabaseAccess();
     CustomerDatabaseAccess cDAO = new CustomerDatabaseAccess();
     EmployeeDatabaseAccess eDAO = new EmployeeDatabaseAccess();
+    Collection<Job> list;
+    if(request.getParameter("filter") == "true") {
+        list = jDAO.getIncompleteJobs();
+    } else {
+        list = jDAO.getJobs();
+    }
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -37,6 +44,7 @@
         </div>
         <div class="back">
             <div class="content">
+                <p id="button"><a href="?filter=true">Hide Completed</a></p>
                 <table cellspacing="0">
                     <tr>
                         <th width="200" id="left">Customer</th>
@@ -49,7 +57,7 @@
                         <th width="50">Edit</th>
                         <th width="50">Delete</th>
                     </tr>
-                    <% for (Job job : jDAO.getJobs()) { %>
+                    <% for (Job job : list) { %>
                     <tr>
                         <td><a href="CustomerDetails.jsp?id=<%=job.getCustomerID()%>"><%= cDAO.searchCustomerID(job.getCustomerID()).getName()%></a></td>
                         <td><a href="EmployeeDetails.jsp?id=<%=job.getEmployeeID()%>"><%= eDAO.searchEmployeeID(job.getEmployeeID()).getName()%></a></td>

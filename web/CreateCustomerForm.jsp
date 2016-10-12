@@ -35,6 +35,7 @@
                 <div class ="form">
                     <% if (request.getParameter("id") != null) {%>
                     <form action="EditCustomer" method=POST">
+                        <input name="id" type="hidden" value="<%=customer.getCustomerID()%>">
                         <input name="Name" type="text" placeholder="Full Name" value="<%=customer.getName()%>">
                         <input name="Address" type="text" placeholder="Address" value="<%=customer.getAddress()%>">
                         <input name="Email" type="text" placeholder="Email" value="<%=customer.getEmail()%>">
