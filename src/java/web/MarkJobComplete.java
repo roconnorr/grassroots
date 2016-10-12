@@ -38,7 +38,14 @@ public class MarkJobComplete extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Status status = Status.valueOf(request.getParameter("status"));
-        jda.markJob(id, status);
+        Status newStatus;
+        if(status == Status.Incomplete){
+            newStatus = Status.Complete;
+        }else{
+            newStatus = Status.Incomplete;
+        }
+        jda.markJob(id, newStatus);
+        response.sendRedirect("ViewJobs.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
