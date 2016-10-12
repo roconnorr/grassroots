@@ -38,8 +38,9 @@ public class EditEmployee extends HttpServlet {
         String name = request.getParameter("Name");
         String email = request.getParameter("Email");
         String phoneNumber = request.getParameter("PhoneNumber");
+        String message = request.getParameter("Message");
         
-        eda.updateEmployee(employeeID, name, email, phoneNumber);
+        eda.updateEmployee(employeeID, name, email, phoneNumber, message);
         response.sendRedirect("ViewEmployees.jsp");
     }
         

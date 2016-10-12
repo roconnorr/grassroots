@@ -16,14 +16,16 @@ public class Employee {
     private String password;
     private String email;
     private String phoneNumber;
+    private String message;
 
-    public Employee(Integer employeeID, String name, String userName, String password, String email, String phoneNumber) {
+    public Employee(Integer employeeID, String name, String userName, String password, String email, String phoneNumber, String message) {
         this.employeeID = employeeID;
         this.name = name;
         this.userName = userName;
         this.password = password;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.message = message;
     }
 
     public Integer getEmployeeID() {
@@ -74,4 +76,14 @@ public class Employee {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    
+    
 }

@@ -31,7 +31,7 @@ public class EmployeeDatabaseAccess {
     }
 
     public void saveEmployee(Employee e) {
-        String sql = "insert into employees (name, username, password, email, phonenumber) values (?,?,?,?,?)";
+        String sql = "insert into employees (name, username, password, email, phonenumber, message) values (?,?,?,?,?,?)";
         
         try (   
                 Connection dbCon = JdbcConnection.getConnection(url);
@@ -42,6 +42,7 @@ public class EmployeeDatabaseAccess {
                 stmt.setString(3, e.getPassword());
                 stmt.setString(4, e.getEmail());
                 stmt.setString(5, e.getPhoneNumber());
+                stmt.setString(6, e.getMessage());
                 stmt.executeUpdate();
                 
         } catch (SQLException ex) {
@@ -66,7 +67,8 @@ public class EmployeeDatabaseAccess {
                     String password = rs.getString("password"); //possibly remove
                     String email = rs.getString("email");
                     String phonenumber = rs.getString("phonenumber");
-                    Employee e = new Employee(customerID, name, username, password, email, phonenumber);
+                    String message = rs.getString("message");
+                    Employee e = new Employee(customerID, name, username, password, email, phonenumber, message);
                     employees.add(e);
                 }
                 return employees;
@@ -91,7 +93,8 @@ public class EmployeeDatabaseAccess {
                     String password = rs.getString("password"); //possibly remove
                     String email = rs.getString("email");
                     String phonenumber = rs.getString("phonenumber");
-                    Employee e = new Employee(customerID, name, username, password, email, phonenumber);
+                    String message = rs.getString("message");
+                    Employee e = new Employee(customerID, name, username, password, email, phonenumber, message);
                     return e;
                 }else{
                     return null;
@@ -117,7 +120,8 @@ public class EmployeeDatabaseAccess {
                     String password = rs.getString("password"); //possibly remove
                     String email = rs.getString("email");
                     String phonenumber = rs.getString("phonenumber");
-                    Employee e = new Employee(customerID, name, username, password, email, phonenumber);
+                    String message = rs.getString("message");
+                    Employee e = new Employee(customerID, name, username, password, email, phonenumber, message);
                     return e;
                 }else{
                     return null;
@@ -160,8 +164,8 @@ public class EmployeeDatabaseAccess {
         }
     }
     
-    public void updateEmployee(Integer employeeID, String name, String email, String phoneNumber) {
-        String sql = "update employees set name = ?, email = ?, phonenumber = ? where employeeid = ?";
+    public void updateEmployee(Integer employeeID, String name, String email, String phoneNumber, String message) {
+        String sql = "update employees set name = ?, email = ?, phonenumber = ?, message = ? where employeeid = ?";
         
         try (   
                 Connection dbCon = JdbcConnection.getConnection(url);
@@ -170,7 +174,8 @@ public class EmployeeDatabaseAccess {
                 stmt.setString(1, name);
                 stmt.setString(2, email);
                 stmt.setString(3, phoneNumber);
-                stmt.setInt(4, employeeID);
+                stmt.setString(4, message);
+                stmt.setInt(5, employeeID);
                 stmt.executeUpdate();
                 
         } catch (SQLException ex) {
