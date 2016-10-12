@@ -14,7 +14,7 @@
     CustomerDatabaseAccess cDAO = new CustomerDatabaseAccess();
     EmployeeDatabaseAccess eDAO = new EmployeeDatabaseAccess();
     Collection<Job> list;
-    if(request.getParameter("filter") == "true") {
+    if (request.getParameter("filter") != null) {
         list = jDAO.getIncompleteJobs();
     } else {
         list = jDAO.getJobs();
@@ -30,7 +30,7 @@
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
-        <% if(session.getAttribute("admin") == null) {%>
+        <% if (session.getAttribute("admin") == null) {%>
         <div class="back">
             <div class="content" id="button">
                 <p id="center">You do not have access to this page</p>
@@ -44,7 +44,13 @@
         </div>
         <div class="back">
             <div class="content">
-                <p id="button"><a href="?filter=true">Hide Completed</a></p>
+                <div id="right">
+                    <% if (request.getParameter("filter") != null) { %>
+                    <p id="button"><a href="ViewJobs.jsp">Show Completed</a></p>
+                    <% } else { %>
+                    <p id="button"><a href="?filter=1">Hide Completed</a></p>
+                    <% } %>
+                </div>
                 <table cellspacing="0">
                     <tr>
                         <th width="200" id="left">Customer</th>
@@ -57,7 +63,7 @@
                         <th width="50">Edit</th>
                         <th width="50">Delete</th>
                     </tr>
-                    <% for (Job job : list) { %>
+                    <% for (Job job : list) {%>
                     <tr>
                         <td><a href="CustomerDetails.jsp?id=<%=job.getCustomerID()%>"><%= cDAO.searchCustomerID(job.getCustomerID()).getName()%></a></td>
                         <td><a href="EmployeeDetails.jsp?id=<%=job.getEmployeeID()%>"><%= eDAO.searchEmployeeID(job.getEmployeeID()).getName()%></a></td>
@@ -73,6 +79,6 @@
                 </table>
             </div>
         </div>
-        <% } %>
+        <% }%>
     </body>
 </html>
