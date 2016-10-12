@@ -42,7 +42,7 @@ public class CreateJob extends HttpServlet {
         String date = request.getParameter("Day");
         Frequency frequency = Frequency.valueOf(request.getParameter("Frequency"));
         String description = request.getParameter("Description");
-        Status status = Status.valueOf(request.getParameter("Status"));
+        Status status = Status.Incomplete;
         
         Job j = new Job(jobID, chargeRate, employeeID, customerID, date, frequency, description, status);
         

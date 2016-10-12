@@ -44,30 +44,6 @@ public class CreateAdmin extends HttpServlet {
         Admin a = new Admin(userName, hashedPassword);
         
         ada.saveAdmin(a);
-        response.sendRedirect("index.jsp");
-        
-        /*
-        Validator validator = new Validator();
-        List<ConstraintViolation> violations = validator.validate(e);
-
-        // were there any violations?
-        if (violations.isEmpty()) {
-            eda.saveEmployee(e);
-            response.sendRedirect("index.jsp");
-        } else {
-            StringBuilder message = new StringBuilder();
-            message.append("<ul>\n");
-
-            //	loop through the violations extracting the message for each
-            for (ConstraintViolation violation : violations) {
-                message.append("<li>").append(violation.getMessage()).append("</li>\n");
-            }
-            
-            message.append("</ul>");
-
-            response.sendError(422, message.toString());
-        }
-        */
 
     }
     
