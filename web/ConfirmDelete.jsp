@@ -35,6 +35,9 @@
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
         <div class="back">
             <div class="content">
+                <div class="childleft">
+                    <img src="resources/logo.png" alt="Logo" style="width:83px;height:103px;" id="logo">
+                </div>
                 <h1>Are you sure you want to delete?</h1>
             </div>
         </div>

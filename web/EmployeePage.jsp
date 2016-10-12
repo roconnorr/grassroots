@@ -28,9 +28,12 @@
                 <p id="center">You do not have access to this page</p>
             </div>
         </div>    
-        <% } else { %>
+        <% } else {%>
         <div class="back">
             <div class="content">
+                <div class="childleft">
+                    <img src="resources/logo.png" alt="Logo" style="width:83px;height:103px;" id="logo">
+                </div>
                 <h1>Assigned Jobs</h1>
             </div>
         </div>
@@ -60,7 +63,7 @@
                     </tr>
                     <% } %>
                 </table>
-                
+
             </div>
         </div>
         <% }%>

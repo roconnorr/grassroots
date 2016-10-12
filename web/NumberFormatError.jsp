@@ -13,6 +13,9 @@
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
+        <div class="childleft">
+            <img src="resources/logo.png" alt="Logo" style="width:83px;height:103px;" id="logo">
+        </div>
         <h1>Number Format Error</h1>
     </body>
 </html>

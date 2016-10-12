@@ -15,11 +15,15 @@
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
         <div class="back">
             <div class="content">
+                <div class="childleft">
+                    <img src="resources/logo.png" alt="Logo" style="width:83px;height:103px;" id="logo">
+                </div>
                 <h1>Contact Us</h1>
             </div>
         </div>
         <div class="back">
             <div class="content">
+                <p id="center">Grassrootswaikato@gmail.com</p>
             </div>
         </div>
     </body>

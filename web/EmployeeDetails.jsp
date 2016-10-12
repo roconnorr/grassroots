@@ -15,38 +15,41 @@
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
-        <% if(session.getAttribute("admin") == null) {%>
+        <% if (session.getAttribute("admin") == null) {%>
         <div class="back">
             <div class="content" id="button">
                 <p id="center">You do not have access to this page</p>
             </div>
         </div>    
-        <% } else { %>
+        <% } else {%>
         <div class="back">
             <div class="content">
+                <div class="childleft">
+                    <img src="resources/logo.png" alt="Logo" style="width:83px;height:103px;" id="logo">
+                </div>
                 <h1>Customer</h1>
             </div>
         </div>
         <div class="back">
             <div class="content">
                 <p>
-                <label>Name: </label>
-                <%= emp.getName() %>
+                    <label>Name: </label>
+                    <%= emp.getName()%>
                 </p><p>
-                <label>Username: </label>
-                <%= emp.getUserName()%>
+                    <label>Username: </label>
+                    <%= emp.getUserName()%>
                 </p><p>
-                <label>Email: </label>
-                <%= emp.getEmail()%>
+                    <label>Email: </label>
+                    <%= emp.getEmail()%>
                 </p><p>
-                <label>Phone Number: </label>
-                <%= emp.getPhoneNumber()%>
+                    <label>Phone Number: </label>
+                    <%= emp.getPhoneNumber()%>
                 </p>
                 <p id="button">
                     <a href="CreateEmployeeForm.jsp?id=<%=emp.getEmployeeID()%>">Edit</a>
                 </p>
             </div>
         </div>
-        <% } %>
+        <% }%>
     </body>
 </html>

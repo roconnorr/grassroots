@@ -22,6 +22,9 @@
         <% } else { %>
         <div class="back">
             <div class="content">
+                <div class="childleft">
+                    <img src="resources/logo.png" alt="Logo" style="width:83px;height:103px;" id="logo">
+                </div>
                 <h1>Admin Control Panel</h1>
             </div>
         </div>

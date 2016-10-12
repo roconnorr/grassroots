@@ -5,10 +5,13 @@
 --%>
 
 <html>
-  <body>
-    <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
-    <h1>Something unexpected happened</h1>
-    <p><%=request.getAttribute("javax.servlet.error.message")%></p>
-    <a href="javascript:history.back()">Back</a>
-  </body>
+    <body>
+        <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
+        <div class="childleft">
+            <img src="resources/logo.png" alt="Logo" style="width:83px;height:103px;" id="logo">
+        </div>
+        <h1>Something unexpected happened</h1>
+        <p><%=request.getAttribute("javax.servlet.error.message")%></p>
+        <a href="javascript:history.back()">Back</a>
+    </body>
 </html>

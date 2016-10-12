@@ -27,6 +27,9 @@
         <% } else { %>
         <div class="back">
             <div class="content">
+                <div class="childleft">
+                    <img src="resources/logo.png" alt="Logo" style="width:83px;height:103px;" id="logo">
+                </div>
                 <% if (request.getParameter("id") != null) {%>
                 <h1>Update Customer</h1>
                 <% } else { %>

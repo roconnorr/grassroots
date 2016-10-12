@@ -25,7 +25,7 @@
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
-        <% if(session.getAttribute("admin") == null) {%>
+        <% if (session.getAttribute("admin") == null) {%>
         <div class="back">
             <div class="content" id="button">
                 <p id="center">You do not have access to this page</p>
@@ -34,6 +34,9 @@
         <% } else { %>
         <div class="back">
             <div class="content">
+                <div class="childleft">
+                    <img src="resources/logo.png" alt="Logo" style="width:83px;height:103px;" id="logo">
+                </div>
                 <% if (request.getParameter("id") != null) {%>
                 <h1>Update Job</h1>
                 <% } else { %>
@@ -45,7 +48,7 @@
             <div class="content">
                 <div class ="form">
                     <!--Editing-->
-                    <% if (request.getParameter("id") != null) { %>
+                    <% if (request.getParameter("id") != null) {%>
                     <form action="EditJob" method=POST" id="jobform">
                         <input name="id" type="hidden" value="<%=job.getJobID()%>">
                         <p><label for="Customer">Customer:</label><br>
@@ -126,6 +129,6 @@
                 </div>
             </div>
         </div>
-        <% } %>
+        <% }%>
     </body>
 </html>
