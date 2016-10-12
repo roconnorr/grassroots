@@ -48,10 +48,18 @@ h2 {
 .childright {
     float: right;
     width: 200px;
+    min-height: 1px;
+}
+
+.childleft{
+    float: left;
+    width: 200px;
+    min-height: 1px;
 }
 
 .navigation {
     text-align: center;
+    margin-left: 200px;
     margin-top: 20px;
 }
 

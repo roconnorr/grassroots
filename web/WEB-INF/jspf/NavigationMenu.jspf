@@ -8,6 +8,11 @@
 
 <div class="navigation">
     <div id="button">
+        <div class="childright">
+            <%if (employee != null) {%>
+            Welcome <%= employee.getName()%>
+            <%}%>
+        </div>
         <a href="index.jsp">Home</a>
         <%if (session.getAttribute("admin") != null) {%>
         <a href="Admin.jsp">Control Panel</a>
@@ -20,8 +25,5 @@
         <%
             }
         %>
-    <%if (employee != null) {%>
-    <p id="right">Welcome <%= employee.getName()%></p>
-    <%}%>
     </div>
 </div>

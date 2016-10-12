@@ -54,13 +54,13 @@
                         <th width="150" id="left">Description</th>
                         <th width="150" id="left">Mark Complete</th>
                     </tr>
-                    <% for (Job job : jDAO.getJobs()) {%>
+                    <% for (Job job : jDAO.getIncompleteJobsByEmployeeID(employee.getEmployeeID())) {%>
                     <tr>
                         <td><a href="CustomerDetails.jsp?id=<%=job.getCustomerID()%>"><%= cDAO.searchCustomerID(job.getCustomerID()).getName()%></a></td>
                         <td id="money"><%= job.getChargeRate()%></td>
                         <td><%= job.getDate()%></td>
                         <td><%= job.getDescription()%></td>
-                        <td id="button"><a href="/grassroots/MarkJobComplete?id=<%=job.getJobID()%>&status=<%=job.getStatus()%>"><%= job.getStatus()%></a></td>
+                        <td id="button"><a href="/grassroots/MarkJobComplete?id=<%=job.getJobID()%>&status=<%=job.getStatus()%>">Mark Complete</a></td>
                     </tr>
                     <% } %>
                 </table>
