@@ -7,24 +7,25 @@ package web;
 
 import dao.JobDatabaseAccess;
 import domain.Job;
-import domain.Job.Frequency;
 import domain.Job.Status;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Rory
  */
-@WebServlet(name = "CreateJob", urlPatterns = {"/CreateJob"})
-public class CreateJob extends HttpServlet {
-
+@WebServlet(name = "MarkJobComplete", urlPatterns = {"/MarkJobComplete"})
+public class MarkJobComplete extends HttpServlet {
+    
     JobDatabaseAccess jda = new JobDatabaseAccess();
-        
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,20 +35,10 @@ public class CreateJob extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Integer jobID = -1; //temp variable
-        Double chargeRate = Double.parseDouble(request.getParameter("Rate")); //placeholder id, real id is assigned when saved to the db
-        int employeeID = Integer.parseInt(request.getParameter("Employee"));
-        int customerID = Integer.parseInt(request.getParameter("Customer"));
-        String date = request.getParameter("Day");
-        Frequency frequency = Frequency.valueOf(request.getParameter("Frequency"));
-        String description = request.getParameter("Description");
-        Status status = Status.valueOf(request.getParameter("Status"));
-        
-        Job j = new Job(jobID, chargeRate, employeeID, customerID, date, frequency, description, status);
-        
-        jda.saveJob(j);
-        response.sendRedirect("index.jsp");
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Status status = Status.valueOf(request.getParameter("status"));
+        jda.markJob(id, status);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

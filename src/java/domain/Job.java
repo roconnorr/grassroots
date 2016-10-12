@@ -20,9 +20,10 @@ public class Job {
     public enum Frequency {Weekly, Fortnightly, Monthly};
     private Frequency frequency;
     private String description;
-    private String status; //make enum?
+    public enum Status {COMPLETE, INCOMPLETE};
+    private Status status; //make enum?
 
-    public Job(Integer jobID, Double chargeRate, Integer employeeID, Integer customerID, String date, Frequency frequency, String description, String status) {
+    public Job(Integer jobID, Double chargeRate, Integer employeeID, Integer customerID, String date, Frequency frequency, String description, Status status) {
         this.jobID =  jobID;
         this.chargeRate = chargeRate;
         this.employeeID = employeeID;
@@ -91,14 +92,11 @@ public class Job {
         this.description = description;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
-
-    
-
 }

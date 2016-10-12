@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.List;
 import domain.Job;
 import domain.Job.Frequency;
+import domain.Job.Status;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -47,7 +48,7 @@ public class JobDatabaseAccess {
                 stmt.setString(4, j.getDate());
                 stmt.setString(5, j.getFrequency().toString());
                 stmt.setString(6, j.getDescription());
-                stmt.setString(7, j.getStatus());
+                stmt.setString(7, j.getStatus().toString());
                 stmt.executeUpdate();
                 
         } catch (SQLException ex) {
@@ -73,7 +74,7 @@ public class JobDatabaseAccess {
                     String date = rs.getString("date");
                     Frequency frequency = Frequency.valueOf(rs.getString("frequency"));
                     String description = rs.getString("description");
-                    String status = rs.getString("status");
+                    Status status = Status.valueOf(rs.getString("status"));
                     Job j = new Job(jobID, chargerate, employeeID, customerID, date, frequency, description, status);
                     jobs.add(j);
                 }
@@ -100,13 +101,27 @@ public class JobDatabaseAccess {
                     String date = rs.getString("date");
                     Frequency frequency = Frequency.valueOf(rs.getString("frequency"));
                     String description = rs.getString("description");
-                    String status = rs.getString("status");
+                    Status status = Status.valueOf(rs.getString("status"));
                     Job j = new Job(jobID, chargerate, employeeID, customerID, date, frequency, description, status);
                     return j;
                 }else{
                     return null;
                 }
         } catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
+    
+    public void markJob(Integer jobID, Status status){
+        String sql = "update jobs set status = ? where jobid = ?";
+        try (
+                Connection dbCon = JdbcConnection.getConnection(url);
+                PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+                stmt.setString(1, status.toString());
+                stmt.setInt(2, jobID);
+                stmt.executeUpdate();
+        }catch (SQLException ex) {
             throw new DAOException(ex.getMessage(), ex);
         }
     }
