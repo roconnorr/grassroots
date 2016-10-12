@@ -15,9 +15,9 @@
     EmployeeDatabaseAccess eDAO = new EmployeeDatabaseAccess();
     Collection<Job> list;
     if (request.getParameter("filter") != null) {
-        list = jDAO.getIncompleteJobs();
-    } else {
         list = jDAO.getJobs();
+    } else {
+        list = jDAO.getIncompleteJobs();
     }
 %>
 
@@ -49,9 +49,9 @@
             <div class="content">
                 <div id="right">
                     <% if (request.getParameter("filter") != null) { %>
-                    <p id="button"><a href="ViewJobs.jsp">Show Completed</a></p>
-                    <% } else { %>
                     <p id="button"><a href="?filter=1">Hide Completed</a></p>
+                    <% } else { %>
+                    <p id="button"><a href="ViewJobs.jsp">Show Completed</a></p>
                     <% } %>
                 </div>
                 <table cellspacing="0">
@@ -71,7 +71,7 @@
                         <td><a href="CustomerDetails.jsp?id=<%=job.getCustomerID()%>"><%= cDAO.searchCustomerID(job.getCustomerID()).getName()%></a></td>
                         <td><a href="EmployeeDetails.jsp?id=<%=job.getEmployeeID()%>"><%= eDAO.searchEmployeeID(job.getEmployeeID()).getName()%></a></td>
                         <td id="money"><%= job.getChargeRate()%></td>
-                        <td><%= job.getDate()%></td>
+                        <td><%= job.getDateTime()%></td>
                         <td><%= job.getFrequency()%></td>
                         <td><%= job.getDescription()%></td>
                         <td id="button"><a href="/grassroots/MarkJobComplete?id=<%=job.getJobID()%>&status=<%=job.getStatus()%>&source=1"><%= job.getStatus()%></a></td>

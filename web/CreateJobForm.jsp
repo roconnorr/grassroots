@@ -91,7 +91,7 @@
                                 <option value="Monthly" selected="selected">Monthly</option>
                                 <% }%>
                             </select></p>
-                        <input name="Date" type="datetime-local" value="<%=job.getDate()%>">
+                        <input name="Date" type="datetime-local" value="<%=job.getDateTime()%>">
                         <input name="Rate" type="text" placeholder="Rate" value="<%=job.getChargeRate()%>">
                         <textarea name="Description" type="text" placeholder="Decription" form="jobform"><%=job.getDescription()%></textarea>
                         <button type="submit">Update</button>
