@@ -9,13 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home</title>
+        <title>Grass Roots</title>
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
         <div class="back">
             <div class="content">
-                <h1>Home Page</h1>
+                <h1>Grass Roots</h1>
             </div>
         </div>
         <div class="back">

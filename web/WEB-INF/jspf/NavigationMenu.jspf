@@ -14,6 +14,8 @@
             <%}%>
         </div>
         <a href="index.jsp">Home</a>
+        <a href="Gallery.jsp">Gallery</a>
+        <a href="ContactUs.jsp">Contact Us</a>
         <%if (session.getAttribute("admin") != null) {%>
         <a href="Admin.jsp">Control Panel</a>
         <a href="/grassroots/Logout">Admin Logout</a>
