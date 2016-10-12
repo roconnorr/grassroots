@@ -56,7 +56,7 @@
                         <td id="money"><%= job.getChargeRate()%></td>
                         <td><%= job.getDate()%></td>
                         <td><%= job.getDescription()%></td>
-                        <td id="button"><a href="/grassroots/MarkJobComplete?id=<%=job.getJobID()%>&status=<%=job.getStatus()%>">Mark Complete</a></td>
+                        <td id="button"><a href="/grassroots/MarkJobComplete?id=<%=job.getJobID()%>&status=<%=job.getStatus()%>&source=2">Mark Complete</a></td>
                     </tr>
                     <% } %>
                 </table>

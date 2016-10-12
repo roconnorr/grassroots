@@ -15,7 +15,7 @@
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
-        <% if(session.getAttribute("admin") == null) {%>
+        <% if(session.getAttribute("admin") == null && session.getAttribute("user") == null) {%>
         <div class="back">
             <div class="content" id="button">
                 <p id="center">You do not have access to this page</p>
@@ -45,9 +45,11 @@
                     <label>Section Size: </label>
                     <%= customer.getSectionSize()%>
                 </p>
+                <% if(session.getAttribute("user") == null) { %>
                 <p id="button">
                     <a href="CreateCustomerForm.jsp?id=<%=customer.getCustomerID()%>">Edit</a>
                 </p>
+                <% } %>
             </div>
         </div>
         <% } %>

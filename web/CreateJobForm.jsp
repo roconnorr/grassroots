@@ -46,7 +46,7 @@
                 <div class ="form">
                     <!--Editing-->
                     <% if (request.getParameter("id") != null) { %>
-                    <form action="EditJob" method=POST">
+                    <form action="EditJob" method=POST" id="jobform">
                         <input name="id" type="hidden" value="<%=job.getJobID()%>">
                         <p><label for="Customer">Customer:</label><br>
                             <select name="Customer">
@@ -90,7 +90,7 @@
                             </select></p>
                         <input name="Date" type="datetime-local" value="<%=job.getDate()%>">
                         <input name="Rate" type="text" placeholder="Rate" value="<%=job.getChargeRate()%>">
-                        <input name="Description" type="text" placeholder="Decription" value="<%=job.getDescription()%>">
+                        <textarea name="Description" type="text" placeholder="Decription" form="jobform"><%=job.getDescription()%></textarea>
                         <button type="submit">Update</button>
                     </form>
 
@@ -119,7 +119,7 @@
                         </p>
                         <input name="Date" type="datetime-local">
                         <input name="Rate" type="text" placeholder="Rate">
-                        <input name="Description" type="text" placeholder="Decription">
+                        <textarea name="Description" type="text" placeholder="Decription" form="jobform"></textarea>
                         <button type="submit">Create</button>
                         <% }%>
                     </form>
