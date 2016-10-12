@@ -12,11 +12,17 @@
 <div class="navigation">
     <div id="button">
         <a href="index.jsp">Home</a>
+        <%if(session.getAttribute("admin") != null) {%>
         <a href="Admin.jsp">Control Panel</a>
-        <%if (employee != null) {%>
-        <a href="/grassroots/Logout">Logout</a>
+        <a href="/grassroots/Logout">Admin Logout</a>
+        <% } else {
+            if (employee != null) {%>
+        <a href="/grassroots/Logout">Employee Logout</a>
         <%} else {%>
         <a href="EmployeeLogin.jsp">Employee Login</a>
-        <%}%>
+        <%
+            }
+            }
+        %>
     </div>
 </div>
