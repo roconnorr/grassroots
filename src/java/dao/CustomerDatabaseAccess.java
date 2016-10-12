@@ -139,5 +139,23 @@ public class CustomerDatabaseAccess {
         }
     }
     
-    //edit customer method
+    public void updateCustomer(Customer c) {
+        String sql = "update customers set name = ?, address = ?, email = ?, phonenumber = ?, sectionsize = ? where uid = ?";
+        
+        try (   
+                Connection dbCon = JdbcConnection.getConnection(url);
+                PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+                stmt.setString(1, c.getName());
+                stmt.setString(2, c.getAddress());
+                stmt.setString(3, c.getEmail());
+                stmt.setString(4, c.getPhoneNumber());
+                stmt.setString(5, c.getSectionSize());
+                stmt.setInt(6, c.getCustomerID());
+                stmt.executeUpdate();
+                
+        } catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
 }

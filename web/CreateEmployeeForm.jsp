@@ -34,7 +34,7 @@
             <div class="content">
                 <div class ="form">
                     <% if (request.getParameter("id") != null) {%>
-                    <form action="CreateEmployee" method=POST">
+                    <form action="EditEmployee" method=POST">
                         <input name="id" type="hidden" value="<%=emp.getEmployeeID()%>">
                         <input name="Name" type="text" placeholder="Full Name" value="<%=emp.getName()%>">
                         <input name="Email" type="text" placeholder="Email" value="<%=emp.getEmail()%>">

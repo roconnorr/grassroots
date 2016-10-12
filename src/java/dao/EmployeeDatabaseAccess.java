@@ -159,4 +159,22 @@ public class EmployeeDatabaseAccess {
             throw new DAOException(ex.getMessage(), ex);
         }
     }
+    
+    public void updateEmployee(Integer employeeID, String name, String email, String phoneNumber) {
+        String sql = "update employees set name = ?, email = ?, phonenumber = ? where employeeid = ?";
+        
+        try (   
+                Connection dbCon = JdbcConnection.getConnection(url);
+                PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+                stmt.setString(1, name);
+                stmt.setString(2, email);
+                stmt.setString(3, phoneNumber);
+                stmt.setInt(4, employeeID);
+                stmt.executeUpdate();
+                
+        } catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
 }

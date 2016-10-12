@@ -57,7 +57,7 @@ public class JobDatabaseAccess {
     }
 
     public Collection<Job> getJobs() {
-        String sql = "select * from jobs order by status";
+        String sql = "select * from jobs order by status DESC, date";
         try (
                 Connection dbCon = JdbcConnection.getConnection(url);
                 PreparedStatement stmt = dbCon.prepareStatement(sql);
@@ -163,6 +163,28 @@ public class JobDatabaseAccess {
                 stmt.setInt(1, jobid);
                 stmt.executeUpdate();
         }catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
+    
+    public void updateJob(Job j) {
+        String sql = "update jobs set chargerate = ?, employeeid = ?, customerid = ?, date = ?, frequency = ?, description = ?, status = ? where jobid = ?";
+        
+        try (   
+                Connection dbCon = JdbcConnection.getConnection(url);
+                PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+                stmt.setDouble(1, j.getChargeRate());
+                stmt.setInt(2, j.getEmployeeID());
+                stmt.setInt(3, j.getCustomerID());
+                stmt.setString(4, j.getDate());
+                stmt.setString(5, j.getFrequency().toString());
+                stmt.setString(6, j.getDescription());
+                stmt.setString(7, j.getStatus().toString());
+                stmt.setInt(8, j.getJobID());
+                stmt.executeUpdate();
+                
+        } catch (SQLException ex) {
             throw new DAOException(ex.getMessage(), ex);
         }
     }
