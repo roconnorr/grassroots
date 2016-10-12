@@ -29,7 +29,6 @@
                 <p id="center">You do not have access to this page</p>
             </div>
         </div>    
-        
         <% } else { %>
         <div class="back">
             <div class="content">

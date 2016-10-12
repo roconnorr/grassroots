@@ -15,6 +15,13 @@
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
+        <% if(session.getAttribute("admin") == null) {%>
+        <div class="back">
+            <div class="content" id="button">
+                <p id="center">You do not have access to this page</p>
+            </div>
+        </div>    
+        <% } else { %>
         <div class="back">
             <div class="content">
                 <h1>Customer</h1>
@@ -43,5 +50,6 @@
                 </p>
             </div>
         </div>
+        <% } %>
     </body>
 </html>
