@@ -48,38 +48,15 @@ public class CreateEmployee extends HttpServlet {
         String password = request.getParameter("Password");
         String email = request.getParameter("Email");
         String phoneNumber = request.getParameter("PhoneNumber");
+        String message = "";
         
         String saltedPassword = pHash.SALT + password;
         String hashedPassword = pHash.generateHash(saltedPassword);
 
-        Employee e = new Employee(employeeID, name, userName, hashedPassword,  email, phoneNumber);
+        Employee e = new Employee(employeeID, name, userName, hashedPassword,  email, phoneNumber, message);
         
         eda.saveEmployee(e);
         response.sendRedirect("index.jsp");
-        
-        /*
-        Validator validator = new Validator();
-        List<ConstraintViolation> violations = validator.validate(e);
-
-        // were there any violations?
-        if (violations.isEmpty()) {
-            eda.saveEmployee(e);
-            response.sendRedirect("index.jsp");
-        } else {
-            StringBuilder message = new StringBuilder();
-            message.append("<ul>\n");
-
-            //	loop through the violations extracting the message for each
-            for (ConstraintViolation violation : violations) {
-                message.append("<li>").append(violation.getMessage()).append("</li>\n");
-            }
-            
-            message.append("</ul>");
-
-            response.sendError(422, message.toString());
-        }
-        */
-
     }
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

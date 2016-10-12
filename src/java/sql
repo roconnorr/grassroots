@@ -1,37 +1,3 @@
-H2:
-create table customers(
-    uid int not null AUTO_INCREMENT,
-    name varchar not null,
-    address varchar not null,
-    email varchar not null,
-    phonenumber varchar not null,
-    sectionsize varchar not null,
-    constraint pk_customers primary key (uid)
-);
-
-create table employees(
-    employeeid int not null AUTO_INCREMENT,
-    name varchar not null,
-    username varchar not null,
-    password varchar not null,
-    email varchar not null,
-    phonenumber varchar not null,
-    constraint pk_employees primary key (employeeid)
-);
-
-create table jobs(
-    chargerate double not null,
-    employeeid int not null,
-    customerid int not null,
-    date timestamp not null,
-    frequency varchar not null,
-    description varchar not null,
-    status varchar not null,
-    constraint pk_jobs primary key (customerid, employeeid),
-    constraint fk_jobs_customers foreign key (customer) references customers(uid),
-    constraint fk_jobs_employees foreign key (employee) references employees(employeeid)
-);
-
 MYSQL:
 CREATE TABLE customers
 (
@@ -51,7 +17,8 @@ CREATE TABLE employees
   username         VARCHAR(150) NOT NULL,            
   password         VARCHAR(150) NOT NULL,                   
   email            VARCHAR(150) NOT NULL,               
-  phonenumber      VARCHAR(150) NOT NULL,                
+  phonenumber      VARCHAR(150) NOT NULL,
+  message          VARCHAR(150),                  
   PRIMARY KEY     (employeeid)                                  
 );
 
