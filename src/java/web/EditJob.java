@@ -43,9 +43,9 @@ public class EditJob extends HttpServlet {
         String description = request.getParameter("Description");
         Job.Status status = Job.Status.Incomplete;
         
-        Job j = new Job(jobID, chargeRate, employeeID, customerID, date, frequency, description, status);
+        //Job j = new Job(jobID, chargeRate, employeeID, customerID, date, frequency, description, status);
         
-        jda.updateJob(j);
+        //jda.updateJob(j);
         response.sendRedirect("ViewJobs.jsp");
     }
 

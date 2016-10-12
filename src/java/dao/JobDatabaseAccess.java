@@ -5,7 +5,6 @@
  */
 package dao;
 
-import domain.Employee;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +16,7 @@ import domain.Job;
 import domain.Job.Frequency;
 import domain.Job.Status;
 import java.sql.Timestamp;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -37,6 +36,7 @@ public class JobDatabaseAccess {
 
     public void saveJob(Job j) {
         String sql = "insert into jobs (chargerate, employeeid, customerid, date, frequency, description, status) values (?,?,?,?,?,?,?)";
+        Timestamp timestamp = Timestamp.valueOf(j.getDate());
         
         try (   
                 Connection dbCon = JdbcConnection.getConnection(url);
@@ -45,7 +45,7 @@ public class JobDatabaseAccess {
                 stmt.setDouble(1, j.getChargeRate());
                 stmt.setInt(2, j.getEmployeeID());
                 stmt.setInt(3, j.getCustomerID());
-                stmt.setString(4, j.getDate());
+                stmt.setTimestamp(4, timestamp);
                 stmt.setString(5, j.getFrequency().toString());
                 stmt.setString(6, j.getDescription());
                 stmt.setString(7, j.getStatus().toString());
@@ -71,7 +71,7 @@ public class JobDatabaseAccess {
                     double chargerate = rs.getDouble("chargerate");
                     Integer employeeID = rs.getInt("employeeid");
                     Integer customerID = rs.getInt("customerid");
-                    String date = rs.getString("date");
+                    LocalDateTime date = rs.getTimestamp("date").toLocalDateTime();
                     Frequency frequency = Frequency.valueOf(rs.getString("frequency"));
                     String description = rs.getString("description");
                     Status status = Status.valueOf(rs.getString("status"));
@@ -99,7 +99,7 @@ public class JobDatabaseAccess {
                     double chargerate = rs.getDouble("chargerate");
                     Integer employeeID = rs.getInt("employeeid");
                     Integer customerID = rs.getInt("customerid");
-                    String date = rs.getString("date");
+                    LocalDateTime date = rs.getTimestamp("date").toLocalDateTime();
                     Frequency frequency = Frequency.valueOf(rs.getString("frequency"));
                     String description = rs.getString("description");
                     Status status = Status.valueOf(rs.getString("status"));
@@ -126,7 +126,7 @@ public class JobDatabaseAccess {
                     double chargerate = rs.getDouble("chargerate");
                     Integer employeeID = rs.getInt("employeeid");
                     Integer customerID = rs.getInt("customerid");
-                    String date = rs.getString("date");
+                    LocalDateTime date = rs.getTimestamp("date").toLocalDateTime();
                     Frequency frequency = Frequency.valueOf(rs.getString("frequency"));
                     String description = rs.getString("description");
                     Status status = Status.valueOf(rs.getString("status"));
@@ -169,6 +169,7 @@ public class JobDatabaseAccess {
     
     public void updateJob(Job j) {
         String sql = "update jobs set chargerate = ?, employeeid = ?, customerid = ?, date = ?, frequency = ?, description = ?, status = ? where jobid = ?";
+        Timestamp timestamp = Timestamp.valueOf(j.getDate());
         
         try (   
                 Connection dbCon = JdbcConnection.getConnection(url);
@@ -177,7 +178,7 @@ public class JobDatabaseAccess {
                 stmt.setDouble(1, j.getChargeRate());
                 stmt.setInt(2, j.getEmployeeID());
                 stmt.setInt(3, j.getCustomerID());
-                stmt.setString(4, j.getDate());
+                stmt.setTimestamp(4, timestamp);
                 stmt.setString(5, j.getFrequency().toString());
                 stmt.setString(6, j.getDescription());
                 stmt.setString(7, j.getStatus().toString());
@@ -205,7 +206,7 @@ public class JobDatabaseAccess {
                     double chargerate = rs.getDouble("chargerate");
                     Integer employeeID = rs.getInt("employeeid");
                     Integer customerID = rs.getInt("customerid");
-                    String date = rs.getString("date");
+                    LocalDateTime date = rs.getTimestamp("date").toLocalDateTime();
                     Frequency frequency = Frequency.valueOf(rs.getString("frequency"));
                     String description = rs.getString("description");
                     Status status = Status.valueOf(rs.getString("status"));

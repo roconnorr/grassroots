@@ -8,15 +8,11 @@ package web;
 import dao.CustomerDatabaseAccess;
 import domain.Customer;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import net.sf.oval.ConstraintViolation;
-import net.sf.oval.Validator;
 
 /**
  *
@@ -47,30 +43,7 @@ public class CreateCustomer extends HttpServlet {
         Customer c = new Customer(customerID, name, address, email, phoneNumber, sectionSize);
         
         cda.saveCustomer(c);
-        response.sendRedirect("index.jsp");
-        
-        /*
-        Validator validator = new Validator();
-        List<ConstraintViolation> violations = validator.validate(c);
-
-        // were there any violations?
-        if (violations.isEmpty()) {
-            
-        } else {
-            StringBuilder message = new StringBuilder();
-            message.append("<ul>\n");
-
-            //	loop through the violations extracting the message for each
-            for (ConstraintViolation violation : violations) {
-                message.append("<li>").append(violation.getMessage()).append("</li>\n");
-            }
-            
-            message.append("</ul>");
-
-            response.sendError(422, message.toString());
-        }
-
-    */
+        response.sendRedirect("ViewCustomers.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

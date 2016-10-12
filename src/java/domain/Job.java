@@ -5,7 +5,7 @@
  */
 package domain;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -16,19 +16,19 @@ public class Job {
     private Double chargeRate;
     private Integer employeeID;
     private Integer customerID;
-    private String date;
-    public enum Frequency {Weekly, Fortnightly, Monthly};
+    private LocalDateTime dateTime;
+    public enum Frequency {Weekly, Fortnightly, Monthly, OneOff};
     private Frequency frequency;
     private String description;
     public enum Status {Complete, Incomplete};
-    private Status status; //make enum?
+    private Status status;
 
-    public Job(Integer jobID, Double chargeRate, Integer employeeID, Integer customerID, String date, Frequency frequency, String description, Status status) {
+    public Job(Integer jobID, Double chargeRate, Integer employeeID, Integer customerID, LocalDateTime dateTime, Frequency frequency, String description, Status status) {
         this.jobID =  jobID;
         this.chargeRate = chargeRate;
         this.employeeID = employeeID;
         this.customerID = customerID;
-        this.date = date;
+        this.dateTime = dateTime;
         this.frequency = frequency;
         this.description = description;
         this.status = status;
@@ -68,12 +68,12 @@ public class Job {
         this.customerID = customerID;
     }
 
-    public String getDate() {
-        return date;
+    public LocalDateTime getDate() {
+        return dateTime;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDate(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     public Frequency getFrequency() {

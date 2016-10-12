@@ -56,7 +56,7 @@ public class CreateEmployee extends HttpServlet {
         Employee e = new Employee(employeeID, name, userName, hashedPassword,  email, phoneNumber, message);
         
         eda.saveEmployee(e);
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("ViewEmployees.jsp");
     }
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

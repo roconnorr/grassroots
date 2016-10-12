@@ -10,6 +10,13 @@ import domain.Job;
 import domain.Job.Frequency;
 import domain.Job.Status;
 import java.io.IOException;
+import java.time.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,20 +41,21 @@ public class CreateJob extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Integer jobID = -1; //temp variable
-        Double chargeRate = Double.parseDouble(request.getParameter("Rate")); //placeholder id, real id is assigned when saved to the db
-        int employeeID = Integer.parseInt(request.getParameter("Employee"));
-        int customerID = Integer.parseInt(request.getParameter("Customer"));
-        String date = request.getParameter("Day");
-        Frequency frequency = Frequency.valueOf(request.getParameter("Frequency"));
-        String description = request.getParameter("Description");
-        Status status = Status.Incomplete;
-        
-        Job j = new Job(jobID, chargeRate, employeeID, customerID, date, frequency, description, status);
-        
-        jda.saveJob(j);
-        response.sendRedirect("index.jsp");
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+            Integer jobID = -1; //temp variable
+            Double chargeRate = Double.parseDouble(request.getParameter("Rate")); //placeholder id, real id is assigned when saved to the db
+            int employeeID = Integer.parseInt(request.getParameter("Employee"));
+            int customerID = Integer.parseInt(request.getParameter("Customer"));
+            DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+            LocalDateTime dateTime = LocalDateTime.parse(request.getParameter("Date"), formatter);
+            Frequency frequency = Frequency.valueOf(request.getParameter("Frequency"));
+            String description = request.getParameter("Description");
+            Status status = Status.Incomplete;
+            
+            Job j = new Job(jobID, chargeRate, employeeID, customerID, dateTime, frequency, description, status);
+            
+            jda.saveJob(j);
+            response.sendRedirect("ViewJobs.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
