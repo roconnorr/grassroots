@@ -57,7 +57,35 @@ public class JobDatabaseAccess {
     }
 
     public Collection<Job> getJobs() {
-        String sql = "select * from jobs order by date";
+        String sql = "select * from jobs order by status";
+        try (
+                Connection dbCon = JdbcConnection.getConnection(url);
+                PreparedStatement stmt = dbCon.prepareStatement(sql);
+        ) {
+                ResultSet rs = stmt.executeQuery();
+                List<Job> jobs = new ArrayList<>();
+                
+                
+                while (rs.next()) {
+                    Integer jobID = rs.getInt("jobid");
+                    double chargerate = rs.getDouble("chargerate");
+                    Integer employeeID = rs.getInt("employeeid");
+                    Integer customerID = rs.getInt("customerid");
+                    String date = rs.getString("date");
+                    Frequency frequency = Frequency.valueOf(rs.getString("frequency"));
+                    String description = rs.getString("description");
+                    Status status = Status.valueOf(rs.getString("status"));
+                    Job j = new Job(jobID, chargerate, employeeID, customerID, date, frequency, description, status);
+                    jobs.add(j);
+                }
+                return jobs;
+        } catch (SQLException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
+    }
+    
+    public Collection<Job> getIncompleteJobs() {
+        String sql = "select * from jobs where status = 'Incomplete' order by date";
         try (
                 Connection dbCon = JdbcConnection.getConnection(url);
                 PreparedStatement stmt = dbCon.prepareStatement(sql);
