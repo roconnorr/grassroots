@@ -88,7 +88,7 @@
                                 <option value="Monthly" selected="selected">Monthly</option>
                                 <% }%>
                             </select></p>
-                        <input name="Day" type="text" placeholder="Day" value="<%=job.getDate()%>">
+                        <input name="Date" type="datetime-local" value="<%=job.getDate()%>">
                         <input name="Rate" type="text" placeholder="Rate" value="<%=job.getChargeRate()%>">
                         <input name="Description" type="text" placeholder="Decription" value="<%=job.getDescription()%>">
                         <button type="submit">Update</button>
@@ -117,7 +117,7 @@
                                 <option value="Monthly" >Monthly</option>
                             </select>
                         </p>
-                        <input name="Day" type="text" placeholder="Day">
+                        <input name="Date" type="datetime-local">
                         <input name="Rate" type="text" placeholder="Rate">
                         <input name="Description" type="text" placeholder="Decription">
                         <button type="submit">Create</button>

@@ -55,10 +55,10 @@
                     <tr>
                         <th width="200" id="left">Customer</th>
                         <th width="300" id="left">Employee</th>
-                        <th width="300" id="left">Rate</th>
-                        <th width="150" id="left">Day</th>
+                        <th width="100" id="left">Rate</th>
+                        <th width="250" id="left">Date</th>
                         <th width="150" id="left">Frequency</th>
-                        <th width="150" id="left">Description</th>
+                        <th width="300" id="left">Description</th>
                         <th width="150" id="left">Status</th>
                         <th width="50">Edit</th>
                         <th width="50">Delete</th>
