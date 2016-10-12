@@ -27,7 +27,7 @@
             <div class="content">
                 <div class ="form">
                     <% if (request.getParameter("id") != null) {%>
-                    <form action="EditEmployee" method=POST">
+                    <form action="CreateEmployee" method=POST">
                         <input name="Name" type="text" placeholder="Full Name" value="<%=emp.getName()%>">
                         <input name="Email" type="text" placeholder="Email" value="<%=emp.getEmail()%>">
                         <input name="PhoneNumber" type="text" placeholder="Phone Number" value="<%=emp.getPhoneNumber()%>">
