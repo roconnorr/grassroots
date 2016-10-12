@@ -23,6 +23,9 @@
         </div>
         <div class="back">
             <div class="content">
+                <% if (Integer.parseInt(request.getParameter("pass")) == 1) { %>
+                <p id="center">Incorrect Username or Password</p>
+                <% }%>
                 <div class="form">
                     <form action="EmployeeLogin" method=POST">
                         <label for="txtUsername">Username: </label> 
