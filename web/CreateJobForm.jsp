@@ -100,7 +100,7 @@
 
                     <!--Not Editing-->
                     <% } else { %>
-                    <form action="CreateJob" method=POST">
+                    <form action="CreateJob" method=POST" id="jobform">
                         <p><label for="Customer">Customer:</label><br>
                             <select name="Customer">
                                 <% for (Customer cust : cDAO.getCustomers()) {%>
