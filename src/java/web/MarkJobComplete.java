@@ -7,9 +7,11 @@ package web;
 
 import dao.JobDatabaseAccess;
 import domain.Job;
+import domain.Job.Frequency;
 import domain.Job.Status;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,6 +46,17 @@ public class MarkJobComplete extends HttpServlet {
         if(status == Status.Incomplete){
             newStatus = Status.Complete;
             //this means the job was marked complete, and a new one with date plus the frequency should be created
+            Job newjob = j;
+            if(j.getFrequency() == Frequency.Weekly){
+                newjob.setDate(j.getDate().plusWeeks(1));
+                jda.saveJob(newjob);
+            }else if(j.getFrequency() == Frequency.Fortnightly){
+                newjob.setDate(j.getDate().plusWeeks(2));
+                jda.saveJob(newjob);
+            }else if(j.getFrequency() == Frequency.Monthly){
+                newjob.setDate(j.getDate().plusMonths(1));
+                jda.saveJob(newjob);
+            }
         }else{
             newStatus = Status.Incomplete;
         }
