@@ -39,6 +39,7 @@ public class MarkJobComplete extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
+        int jobID = -1; //placeholder
         int source = Integer.parseInt(request.getParameter("source"));
         Job j = jda.searchJobID(id);
         Status status = Status.valueOf(request.getParameter("status"));
@@ -46,15 +47,15 @@ public class MarkJobComplete extends HttpServlet {
         if(status == Status.Incomplete){
             newStatus = Status.Complete;
             //this means the job was marked complete, and a new one with date plus the frequency should be created
-            Job newjob = j;
+            Job newjob = new Job(jobID, j.getChargeRate(), j.getEmployeeID(), j.getCustomerID(), j.getDate(), j.getFrequency(), j.getDescription(), Status.Incomplete);
             if(j.getFrequency() == Frequency.Weekly){
-                newjob.setDate(j.getDate().plusWeeks(1));
+                newjob.setDate(newjob.getDate().plusWeeks(1));
                 jda.saveJob(newjob);
             }else if(j.getFrequency() == Frequency.Fortnightly){
-                newjob.setDate(j.getDate().plusWeeks(2));
+                newjob.setDate(newjob.getDate().plusWeeks(2));
                 jda.saveJob(newjob);
             }else if(j.getFrequency() == Frequency.Monthly){
-                newjob.setDate(j.getDate().plusMonths(1));
+                newjob.setDate(newjob.getDate().plusMonths(1));
                 jda.saveJob(newjob);
             }
         }else{
