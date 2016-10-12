@@ -48,7 +48,7 @@ public class EmployeeLogin extends HttpServlet {
                 response.sendRedirect("index.jsp");
             }
         } else {
-            response.sendRedirect("Login.jsp");
+            response.sendRedirect("EmployeeLogin.jsp");
         }
 
     }
