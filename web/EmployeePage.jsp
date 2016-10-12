@@ -1,0 +1,72 @@
+<%-- 
+    Document   : EmployeePage
+    Created on : 12/10/2016, 2:36:59 PM
+    Author     : Joe
+--%>
+
+<%@page import="domain.Job"%>
+<%@page import="dao.JobDatabaseAccess"%>
+<%@page import="dao.CustomerDatabaseAccess"%>
+<%@page import="dao.EmployeeDatabaseAccess"%>
+<%
+    JobDatabaseAccess jDAO = new JobDatabaseAccess();
+    CustomerDatabaseAccess cDAO = new CustomerDatabaseAccess();
+%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Employee Page</title>
+    </head>
+    <body>
+        <%@include file="/WEB-INF/jspf/NavigationMenu.jspf" %>
+        <% if (session.getAttribute("user") == null) {%>
+        <div class="back">
+            <div class="content" id="button">
+                <p id="center">You do not have access to this page</p>
+            </div>
+        </div>    
+        <% } else { %>
+        <div class="back">
+            <div class="content">
+                <h1>Assigned Jobs</h1>
+            </div>
+        </div>
+        <div class="back">
+            <div class="content">
+                <div class="childright" id="button">
+                    <a href="">Change Password</a>
+                </div>
+                <h2>Welcome <%= employee.getName()%></h2>
+                <p>This will eventually be a message from soul but for now I'm just writing in random shit so that I can test that the
+                    page formats correctly haha lmao xd words words words I like writing words. I love memes but only ironically
+                    sadf asdf fdsa. Somebody once told me the world is gonna roll me, I ain't the sharpest tool in the shed.
+                    She was looking kind of dumb with her finger and her thumb in the shape of an L on her forehead.
+                </p>
+                <h2>Jobs:</h2>
+                <table cellspacing="0">
+                    <tr>
+                        <th width="200" id="left">Customer</th>
+                        <th width="300" id="left">Rate</th>
+                        <th width="150" id="left">Date</th>
+                        <th width="150" id="left">Description</th>
+                        <th width="150" id="left">Mark Complete</th>
+                    </tr>
+                    <% for (Job job : jDAO.getJobs()) {%>
+                    <tr>
+                        <td><a href="CustomerDetails.jsp?id=<%=job.getCustomerID()%>"><%= cDAO.searchCustomerID(job.getCustomerID()).getName()%></a></td>
+                        <td id="money"><%= job.getChargeRate()%></td>
+                        <td><%= job.getDate()%></td>
+                        <td><%= job.getDescription()%></td>
+                        <td id="button"><a href="/grassroots/MarkJobComplete?id=<%=job.getJobID()%>&status=<%=job.getStatus()%>"><%= job.getStatus()%></a></td>
+                    </tr>
+                    <% } %>
+                </table>
+                
+            </div>
+        </div>
+        <% }%>
+    </body>
+</html>

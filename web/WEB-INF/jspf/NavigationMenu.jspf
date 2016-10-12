@@ -3,26 +3,25 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans|Patua+One" rel="stylesheet">
 <%
-    Employee employee = (Employee)session.getAttribute("user");
+    Employee employee = (Employee) session.getAttribute("user");
 %>
 
-<%if(employee != null){%>
-<h2>Welcome <%= employee.getName()%></h2>
-<%}%>
 <div class="navigation">
     <div id="button">
         <a href="index.jsp">Home</a>
-        <%if(session.getAttribute("admin") != null) {%>
+        <%if (session.getAttribute("admin") != null) {%>
         <a href="Admin.jsp">Control Panel</a>
         <a href="/grassroots/Logout">Admin Logout</a>
-        <% } else {
-            if (employee != null) {%>
+        <% } else if (employee != null) {%>
+        <a href="EmployeePage.jsp">Job Details</a>
         <a href="/grassroots/Logout">Employee Logout</a>
         <%} else {%>
         <a href="EmployeeLogin.jsp">Employee Login</a>
         <%
             }
-            }
         %>
+    <%if (employee != null) {%>
+    <p id="right">Welcome <%= employee.getName()%></p>
+    <%}%>
     </div>
 </div>

@@ -45,6 +45,15 @@ h2 {
     text-decoration: underline;
 }
 
+.mainleft {
+    width:
+}
+
+.childright {
+    float: right;
+    width: 200px;
+}
+
 .navigation {
     text-align: center;
     margin-top: 20px;
