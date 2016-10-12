@@ -164,8 +164,8 @@ public class EmployeeDatabaseAccess {
         }
     }
     
-    public void updateEmployee(Integer employeeID, String name, String email, String phoneNumber) {
-        String sql = "update employees set name = ?, email = ?, phonenumber = ? where employeeid = ?";
+    public void updateEmployee(Integer employeeID, String name, String email, String phoneNumber, String message) {
+        String sql = "update employees set name = ?, email = ?, phonenumber = ?, message = ? where employeeid = ?";
         
         try (   
                 Connection dbCon = JdbcConnection.getConnection(url);
@@ -174,7 +174,8 @@ public class EmployeeDatabaseAccess {
                 stmt.setString(1, name);
                 stmt.setString(2, email);
                 stmt.setString(3, phoneNumber);
-                stmt.setInt(4, employeeID);
+                stmt.setString(4, message);
+                stmt.setInt(5, employeeID);
                 stmt.executeUpdate();
                 
         } catch (SQLException ex) {

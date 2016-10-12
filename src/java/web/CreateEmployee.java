@@ -48,7 +48,7 @@ public class CreateEmployee extends HttpServlet {
         String password = request.getParameter("Password");
         String email = request.getParameter("Email");
         String phoneNumber = request.getParameter("PhoneNumber");
-        String message = "";
+        String message = request.getParameter("Message");
         
         String saltedPassword = pHash.SALT + password;
         String hashedPassword = pHash.generateHash(saltedPassword);
