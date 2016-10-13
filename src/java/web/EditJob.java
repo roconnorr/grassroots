@@ -8,7 +8,8 @@ package web;
 import dao.JobDatabaseAccess;
 import domain.Job;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,14 +39,15 @@ public class EditJob extends HttpServlet {
         Double chargeRate = Double.parseDouble(request.getParameter("Rate")); //placeholder id, real id is assigned when saved to the db
         int employeeID = Integer.parseInt(request.getParameter("Employee"));
         int customerID = Integer.parseInt(request.getParameter("Customer"));
-        String date = request.getParameter("Day");
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+        LocalDateTime dateTime = LocalDateTime.parse(request.getParameter("Date"), formatter);
         Job.Frequency frequency = Job.Frequency.valueOf(request.getParameter("Frequency"));
         String description = request.getParameter("Description");
         Job.Status status = Job.Status.Incomplete;
         
-        //Job j = new Job(jobID, chargeRate, employeeID, customerID, date, frequency, description, status);
+        Job j = new Job(jobID, chargeRate, employeeID, customerID, dateTime, frequency, description, status);
         
-        //jda.updateJob(j);
+        jda.updateJob(j);
         response.sendRedirect("ViewJobs.jsp");
     }
 
