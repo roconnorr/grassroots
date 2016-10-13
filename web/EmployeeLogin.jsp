@@ -23,7 +23,7 @@
         </div>
         <div class="back">
             <div class="content">
-                <% if (Integer.parseInt(request.getParameter("pass")) == 1) { %>
+                <% if (request.getParameter("pass") != null) { %>
                 <p id="center">Incorrect Username or Password</p>
                 <% }%>
                 <div class="form">
