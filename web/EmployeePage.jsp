@@ -39,9 +39,6 @@
         </div>
         <div class="back">
             <div class="content">
-                <div class="childright" id="button">
-                    <a href="">Change Password</a>
-                </div>
                 <h2>Welcome <%= employee.getName()%></h2>
                 <p><%=employee.getMessage()%></p>
                 <h2>Jobs:</h2>
