@@ -81,7 +81,7 @@
                         <td><%= date %></td>
                         <td><%= job.getFrequency()%></td>
                         <td><%= job.getDescription()%></td>
-                        <td id="button"><a href="/grassroots/MarkJobComplete?id=<%=job.getJobID()%>&status=<%=job.getStatus()%>&source=1"><%= job.getStatus()%></a></td>
+                        <td id="button"><a href="ConfirmMark.jsp?id=<%=job.getJobID()%>&status=<%=job.getStatus()%>&source=1"><%= job.getStatus()%></a></td>
                         <td id="button"><a href="CreateJobForm.jsp?id=<%=job.getJobID()%>">Edit</a></td>
                         <td id="button"><a href="ConfirmDelete.jsp?type=3&id=<%=job.getJobID()%>">Delete</a></td>
                     </tr>
