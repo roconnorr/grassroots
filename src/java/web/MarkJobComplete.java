@@ -42,7 +42,6 @@ public class MarkJobComplete extends HttpServlet {
         int jobID = -1; //placeholder
         int source = Integer.parseInt(request.getParameter("source"));
         Job j = jda.searchJobID(id);
-        System.out.println("j" + j.getDateTime());
         Status status = Status.valueOf(request.getParameter("status"));
         Status newStatus;
         if(status == Status.Incomplete){

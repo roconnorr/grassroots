@@ -4,6 +4,8 @@
     Author     : Rory
 --%>
 
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.time.LocalDateTime"%>
 <%@page import="java.util.Collection"%>
 <%@page import="dao.CustomerDatabaseAccess"%>
 <%@page import="dao.EmployeeDatabaseAccess"%>
@@ -71,7 +73,12 @@
                         <td><a href="CustomerDetails.jsp?id=<%=job.getCustomerID()%>"><%= cDAO.searchCustomerID(job.getCustomerID()).getName()%></a></td>
                         <td><a href="EmployeeDetails.jsp?id=<%=job.getEmployeeID()%>"><%= eDAO.searchEmployeeID(job.getEmployeeID()).getName()%></a></td>
                         <td id="money"><%= job.getChargeRate()%></td>
-                        <td><%= job.getDateTime()%></td>
+                        <% 
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h':'m a EEEE d MMMM u");
+                            String date = job.getDateTime().format(formatter); 
+                        %>
+                        
+                        <td><%= date %></td>
                         <td><%= job.getFrequency()%></td>
                         <td><%= job.getDescription()%></td>
                         <td id="button"><a href="/grassroots/MarkJobComplete?id=<%=job.getJobID()%>&status=<%=job.getStatus()%>&source=1"><%= job.getStatus()%></a></td>
