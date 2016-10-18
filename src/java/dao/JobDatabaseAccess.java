@@ -58,7 +58,7 @@ public class JobDatabaseAccess {
     }
 
     public Collection<Job> getJobs() {
-        String sql = "select * from jobs order by date";
+        String sql = "select * from jobs order by date desc";
         try (
                 Connection dbCon = JdbcConnection.getConnection(url);
                 PreparedStatement stmt = dbCon.prepareStatement(sql);

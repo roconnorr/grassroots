@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="back">
-            <div class="content">
+            <div class="content" id="button">
                 <a href="javascript:history.back()">Back</a>
             </div>
         </div>

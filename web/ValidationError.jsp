@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="back">
-            <div class="content">
+            <div class="content" id="button">
                 <a href="javascript:history.back()">Back</a>
                 <p><%=request.getAttribute("javax.servlet.error.message")%></p>
             </div>
