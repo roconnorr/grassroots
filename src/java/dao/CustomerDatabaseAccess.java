@@ -21,7 +21,7 @@ import domain.Customer;
 public class CustomerDatabaseAccess {
 
     //jdbc:h2:tcp://localhost:9013/soultest;IFEXISTS=TRUE 
-    static private String url = "jdbc:mysql://192.168.178.21:3306/grassroots";
+    static private String url = "jdbc:mysql://localhost:3306/grassroots";
 
     public CustomerDatabaseAccess() {
     }

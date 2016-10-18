@@ -18,10 +18,10 @@
         <a href="ContactUs.jsp">Contact Us</a>
         <%if (session.getAttribute("admin") != null) {%>
         <a href="Admin.jsp">Control Panel</a>
-        <a href="/grassroots/Logout">Admin Logout</a>
+        <a href="/Logout">Admin Logout</a>
         <% } else if (employee != null) {%>
         <a href="EmployeePage.jsp">Job Details</a>
-        <a href="/grassroots/Logout">Employee Logout</a>
+        <a href="/Logout">Employee Logout</a>
         <%} else {%>
         <a href="EmployeeLogin.jsp">Employee Login</a>
         <%

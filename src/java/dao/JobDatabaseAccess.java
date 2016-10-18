@@ -25,7 +25,7 @@ import java.time.LocalDateTime;
 public class JobDatabaseAccess {
 
  
-    static private String url = "jdbc:mysql://192.168.178.21:3306/grassroots";
+    static private String url = "jdbc:mysql://localhost:3306/grassroots";
 
     public JobDatabaseAccess() {
     }

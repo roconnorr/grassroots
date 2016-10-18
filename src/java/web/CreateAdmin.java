@@ -35,15 +35,14 @@ public class CreateAdmin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         //manually enter details to make admins
-        String userName = "test";
-        String password = "test";
+        String userName = "devadmin";
+        String password = "pooShitpoo$hit124";
         
         String saltedPassword = pHash.SALT + password;
         String hashedPassword = pHash.generateHash(saltedPassword);
 
-        Admin a = new Admin(userName, hashedPassword);
+        System.out.println(hashedPassword);
         
-        ada.saveAdmin(a);
 
     }
     
