@@ -24,7 +24,7 @@
         <div class="back">
             <div class="content">
                 <p id="center"><a href="https://www.facebook.com/Grass-Roots-1710161492581692/">Facebook</a>
-                <p id="center">Email: Grassrootswaikato@gmail.com</p>
+                <p id="center">Email: info@grassrootsmaintenance.com</p>
                 <p id="center">Phone: 022 193 3558</p>
             </div>
         </div>

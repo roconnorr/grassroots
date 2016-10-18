@@ -34,6 +34,7 @@ body {
     padding: 0.5em 0em;
     border: solid 6px #a4c97c;
     border-radius: 10px;
+    overflow: auto;
 }
 
 .content {
@@ -62,6 +63,13 @@ h2 {
     float: right;
     width: 200px;
     min-height: 1px;
+}
+
+.childright2 {
+    float: right;
+    width: 300px;
+    min-height: 1px;
+    margin-left: 20px;
 }
 
 .childleft{

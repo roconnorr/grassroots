@@ -23,15 +23,16 @@
         </div>
         <div class="back">
             <div class="content">
+                <div class="childright2">
+                    <p id="center">Before</p>
+                    <p id="center"><img src="resources/before.jpg" alt="Before" style="width:300px;"</p>
+                    <p id="center">After</p>
+                    <p id="center"><img src="resources/after.jpg" alt="After" style="width:300px;"></p>
+                </div>
                 <h2>About Us</h2>
-                <p>Started in the end of 2015 by a couple of students. Grass Roots is proudly locally owned and operated.
-                    Currently we focus on outdoor maintenance: Lawn Mowing, Pruning, Window Washing and Soft Washing Exteriors.
-                    However if you have something you need doing give us a bell and we'll see what we can do.</p>
-                <h2>Services</h2>
-                <ul>
-                    <li>Lawn Mowing</li>
-                    <li>Other Thing</li>
-                </ul>
+                <p>Grass Roots Maintenance is about quality, friendly service at affordable prices. While still only small Grass Roots has been steadily growing since it started in late 2015. Proudly locally owned and operated Grass Roots currently services properties all over the Waikato.</p>
+                <p>Although Grass Roots, takes a more casual approach to business but this in no way impacts our dedication to providing professional quality solutions to your maintenance needs. </p>
+                <p>While we currently focus on outdoor maintenance: Lawn Mowing, Pruning, Window Washing and Soft Washing Plaster Exteriors. We are also available for interior Paint and Plaster. Or if you need help with anything else feel free to contact us on info@grassrootsmaintenance.com</p>
             </div>
         </div>
     </body>
