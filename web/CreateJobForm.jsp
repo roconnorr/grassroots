@@ -77,15 +77,23 @@
                             </select></p>
                         <p><label for="Frequency">Frequency</label><br>
                             <select name="Frequency">
-                                <% if (job.getFrequency() == Frequency.Weekly) { %>
+                                <% if (job.getFrequency() == Frequency.OneOff) { %>
+                                <option value="Oneoff" selected="selected">One Off</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Fortnightly">Fortnightly</option>
+                                <option value="Monthly">Monthly</option>
+                                <% } else if (job.getFrequency() == Frequency.Weekly) { %>
+                                <option value="Oneoff">One Off</option>
                                 <option value="Weekly" selected="selected">Weekly</option>
                                 <option value="Fortnightly">Fortnightly</option>
                                 <option value="Monthly">Monthly</option>
                                 <% } else if (job.getFrequency() == Frequency.Fortnightly) { %>
+                                <option value="Oneoff">One Off</option>
                                 <option value="Weekly">Weekly</option>
                                 <option value="Fortnightly" selected="selected">Fortnightly</option>
                                 <option value="Monthly">Monthly</option>
                                 <% } else if (job.getFrequency() == Frequency.Monthly) { %>
+                                <option value="Oneoff">One Off</option>
                                 <option value="Weekly">Weekly</option>
                                 <option value="Fortnightly">Fortnightly</option>
                                 <option value="Monthly" selected="selected">Monthly</option>
@@ -115,6 +123,7 @@
                             </select></p>
                         <p><label for="Frequency">Frequency</label><br>
                             <select name="Frequency">
+                                <option value="Oneoff" >One Off</option>
                                 <option value="Weekly" >Weekly</option>
                                 <option value="Fortnightly" >Fortnightly</option>
                                 <option value="Monthly" >Monthly</option>

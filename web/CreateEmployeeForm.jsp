@@ -50,13 +50,13 @@
                         <button type="submit">Update</button>
                     </form>
                     <% } else { %>
-                    <form action="CreateEmployee" method=POST">
+                    <form action="CreateEmployee" method=POST" id="empform2">
                         <input name="Name" type="text" placeholder="Full Name">
                         <input name="Username" type="text" placeholder="Username">
                         <input name="Password" type="password" placeholder="Password">
                         <input name="Email" type="text" placeholder="Email">
                         <input name="PhoneNumber" type="text" placeholder="Phone Number">
-                        <textarea name="Message" type="text" placeholder="Message" form="empform"></textarea>
+                        <textarea name="Message" type="text" placeholder="Message" form="empform2"></textarea>
                         <button type="submit">Create</button>
                     </form>
                     <% }%>

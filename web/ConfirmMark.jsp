@@ -30,7 +30,7 @@
         <div class="back">
             <div class="content" id="center">
                 <p id="button">
-                    <a href="/grassroots/MarkJobComplete?id=<%=id%>&status=<%=status%>&source=<%=source%>">Mark Complete</a>
+                    <a href="MarkJobComplete?id=<%=id%>&status=<%=status%>&source=<%=source%>">Mark Complete</a>
                     <a href="javascript:history.back()">Back</a>
                 </p>
             </div>
