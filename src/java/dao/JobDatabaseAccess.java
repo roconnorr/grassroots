@@ -86,7 +86,7 @@ public class JobDatabaseAccess {
     }
     
     public Collection<Job> getIncompleteJobs() {
-        String sql = "select * from jobs where status = 'Incomplete' order by date";
+        String sql = "select * from jobs where status = 'Incomplete' order by date desc";
         try (
                 Connection dbCon = JdbcConnection.getConnection(url);
                 PreparedStatement stmt = dbCon.prepareStatement(sql);
@@ -194,7 +194,7 @@ public class JobDatabaseAccess {
     }
     
     public Collection<Job> getIncompleteJobsByEmployeeID(Integer id) {
-        String sql = "select * from jobs where status = 'Incomplete' and employeeid = ? order by date";
+        String sql = "select * from jobs where status = 'Incomplete' and employeeid = ? order by date desc";
         try (
                 Connection dbCon = JdbcConnection.getConnection(url);
                 PreparedStatement stmt = dbCon.prepareStatement(sql);
