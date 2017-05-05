@@ -18,8 +18,8 @@ import java.util.logging.Logger;
  */
 public class JdbcConnection {
 
-    private static final String username = "grassroots";
-    private static final String password = "kgn1!@^H90#fn3#f31!d";
+    private static final String username = "";
+    private static final String password = "";
     private static Connection conn = null;
     
 

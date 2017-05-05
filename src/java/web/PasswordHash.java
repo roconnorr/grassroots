@@ -16,7 +16,7 @@ import java.security.NoSuchAlgorithmException;
  */
 public class PasswordHash {
     
-    public static final String SALT = "g74g1tb12124^!#$71YV!%V71g171g6!v7";
+    public static final String SALT = "";
     EmployeeDatabaseAccess eda = new EmployeeDatabaseAccess();
     AdminDatabaseAccess ada = new AdminDatabaseAccess();
     
